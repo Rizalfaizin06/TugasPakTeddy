@@ -5,9 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link
-        href="<?= base_url() ?>assets/bootstrap/css/bootstrap.min.css"
-        rel="stylesheet">
+    <link href="<?= base_url() ?>assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <title>EDIT Produk</title>
 </head>
 
@@ -22,10 +20,8 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-link" aria-current="page"
-                        href="<?= base_url() ?>">Home</a>
-                    <a class="nav-link"
-                        href="<?= base_url() ?>index.php/product/index">Product</a>
+                    <a class="nav-link" aria-current="page" href="<?= base_url() ?>">Home</a>
+                    <a class="nav-link" href="<?= base_url() ?>product/index">Product</a>
                 </div>
             </div>
         </div>
@@ -39,29 +35,24 @@
                         Form Edit Product
                     </div>
                     <div class="card-body">
-                        <form
-                            action="<?= site_url('product/update'); ?>"
-                            method="post">
+                        <form action="<?= site_url('product/update'); ?>" method="post">
 
                             <div>
                                 <label class="form-label" for="product">Product Name</label>
                                 <input class="form-control" type="text" name="product_name" placeholder="Product Name"
-                                    value="<?= $product_name; ?>"
-                                    id="product" required>
+                                    value="<?= $product_name; ?>" id="product" required>
                             </div>
                             <div>
                                 <label class="form-label" for="harga">harga</label>
                                 <input class="form-control" id="harga" type="text" name="product_price"
-                                    value="<?= $product_price; ?>"
-                                    placeholder="Product Price" required>
+                                    value="<?= $product_price; ?>" placeholder="Product Price" required>
                             </div>
-                            <input type="hidden" name="product_code"
-                                value="<?= $product_code; ?>"
+                            <input type="hidden" name="product_code" value="<?= $product_code; ?>"
                                 placeholder="Product code">
 
                             <button type="submit" class="btn btn-success float-end mt-2">Submit</button>
-                            <a href="<?= site_url('product'); ?>"
-                                class="btn btn-primary float-end mt-2  me-2"> Batal</a>
+                            <a href="<?= site_url('product'); ?>" class="btn btn-primary float-end mt-2  me-2">
+                                Batal</a>
                         </form>
                     </div>
                 </div>

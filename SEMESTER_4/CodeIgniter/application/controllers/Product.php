@@ -13,39 +13,65 @@ class Product extends CI_Controller
     {
         //search text
         $search_text = "";
-        if ($this->input->post('submit') != '') {
-            $search_text = $this->input->post('search');
-            $this->session->set_userdata("search", $search_text);
+        $searchCode = "";
+        $searchName = "";
+        $searchPrice = "";
+        if ($this->input->post('submitCode') != '') {
+            $searchCode = $this->input->post('searchCode');
+            $this->session->set_userdata("searchCode", $searchCode);
+            $this->session->set_userdata("searchName", "");
+            $this->session->set_userdata("searchPrice", "");
+        } elseif ($this->input->post('submitName') != '') {
+            $searchName = $this->input->post('searchName');
+            $this->session->set_userdata("searchCode", "");
+            $this->session->set_userdata("searchName", $searchName);
+            $this->session->set_userdata("searchPrice", "");
+        } elseif ($this->input->post('submitPrice') != '') {
+            $searchPrice = $this->input->post('searchPrice');
+            $this->session->set_userdata("searchCode", "");
+            $this->session->set_userdata("searchName", "");
+            $this->session->set_userdata("searchPrice", $searchPrice);
         } else {
-            if ($this->session->userdata('search') != '') {
-                $search_text = $this->session->userdata('search');
+            if ($this->session->userdata('searchCode') != "") {
+                $searchCode = $this->session->userdata('searchCode');
+                $this->session->set_userdata("searchCode", $searchCode);
+            } elseif ($this->session->userdata('searchName') != "") {
+                $searchName = $this->session->userdata('searchName');
+                $this->session->set_userdata("searchName", $searchName);
+            } elseif ($this->session->userdata('searchPrice') != "") {
+                $searchPrice = $this->session->userdata('searchPrice');
+                $this->session->set_userdata("searchPrice", $searchPrice);
             }
         }
 
         //--pagination--
         $row_per_page = 5;
 
-        if ($row_no !=0) {
+        if ($row_no != 0) {
             $row_no = ($row_no - 1) * $row_per_page;
         }
         // Pagination Configuration
         // All record count
-        $config['total_rows'] = $this->product_model->get_product_count($search_text);
-        $config['base_url'] = base_url() . 'index.php/product/index';
+        $config['total_rows'] = $this->product_model->get_product_count($searchCode, $searchName, $searchPrice);
+        $config['base_url'] = base_url() . 'product/index';
         $config['use_page_numbers'] = true;
         $config['per_page'] = $row_per_page;
 
         //initialize
         $this->pagination->initialize($config);
 
-        $data['pagination'] =$this->pagination->create_links();
+        $data['pagination'] = $this->pagination->create_links();
 
         // Get record
-        $data['product'] = $this->product_model->get_product($row_no, $row_per_page, $search_text);
+        $data['product'] = $this->product_model->get_product($row_no, $row_per_page, $searchCode, $searchName, $searchPrice);
 
         $data['row'] = $row_no;
 
         $data['search'] = $search_text;
+        $data['searchCode'] = $searchCode;
+        $data['searchName'] = $searchName;
+        $data['searchPrice'] = $searchPrice;
+        $data['totalRow'] = $config['total_rows'];
 
         $this->load->view('product_view', $data);
     }

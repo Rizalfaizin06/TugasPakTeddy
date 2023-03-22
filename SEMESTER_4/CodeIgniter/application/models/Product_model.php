@@ -2,15 +2,19 @@
 
 class Product_model extends CI_Model
 {
-    public function get_product($rowno, $rowperpage, $search = "")
+    public function get_product($rowno, $rowperpage, $searchCode = "", $searchName = "", $searchPrice = "")
     {
         $this->db->select('*');
         $this->db->from('product');
 
-        if ($search != '') {
-            $this->db->like('product_name', $search);
-            $this->db->or_like('product_price', $search);
+        if ($searchCode != '') {
+            $this->db->like('product_code', $searchCode);
+        } elseif ($searchName != '') {
+            $this->db->like('product_name', $searchName);
+        } elseif ($searchPrice != '') {
+            $this->db->like('product_price', $searchPrice);
         }
+
 
         $result = $this->db->limit($rowperpage, $rowno)->get();
         return $result;
@@ -20,9 +24,10 @@ class Product_model extends CI_Model
     {
         $data = array(
             'product_name' => $product_name,
-            'product_price' => $product_price)
-            
-            ;
+            'product_price' => $product_price
+        )
+
+        ;
 
         $this->db->insert('product', $data);
     }
@@ -38,7 +43,7 @@ class Product_model extends CI_Model
         $data = array(
             'product_name' => $product_name,
             'product_price' => $product_price
-        
+
         );
 
         $this->db->where('product_code', $product_code);
@@ -52,15 +57,19 @@ class Product_model extends CI_Model
     }
 
     //count total record
-    public function get_product_count($search = '')
+    public function get_product_count($searchCode = "", $searchName = "", $searchPrice = "")
     {
         $this->db->select('*');
         $this->db->from('product');
 
-        if ($search != '') {
-            $this->db->like('product_name', $search);
-            $this->db->or_like('product_price', $search);
+        if ($searchCode != '') {
+            $this->db->like('product_code', $searchCode);
+        } elseif ($searchName != '') {
+            $this->db->like('product_name', $searchName);
+        } elseif ($searchPrice != '') {
+            $this->db->like('product_price', $searchPrice);
         }
+
         $result = $this->db->count_all_results();
 
         return $result;

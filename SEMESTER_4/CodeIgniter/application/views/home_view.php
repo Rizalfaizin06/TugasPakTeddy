@@ -7,9 +7,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 <head>
 	<meta charset="utf-8">
 	<title>Home View</title>
-	<link
-		href="<?= base_url() ?>assets/bootstrap/css/bootstrap.min.css"
-		rel="stylesheet">
+	<link href="<?= base_url() ?>assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
 </head>
 
 <body>
@@ -23,10 +21,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
 			</button>
 			<div class="collapse navbar-collapse" id="navbarNavAltMarkup">
 				<div class="navbar-nav">
-					<a class="nav-link" aria-current="page"
-						href="<?= base_url() ?>">Home</a>
-					<a class="nav-link"
-						href="<?= base_url() ?>index.php/product/index">Product</a>
+					<a class="nav-link" aria-current="page" href="<?= base_url() ?>">Home</a>
+					<a class="nav-link" href="<?= base_url() ?>product/index">Product</a>
 				</div>
 			</div>
 		</div>
@@ -39,8 +35,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 			<div class="card-body">
 				<h5 class="card-title">Cara Akses Data Product</h5>
 				<p class="card-text">Bisa dengan Klik tombol dibawah atau link product di NavBar.</p>
-				<a href="<?= site_url('product'); ?>"
-					class="btn btn-primary">View
+				<a href="<?= site_url('product'); ?>" class="btn btn-primary">View
 					Product</a>
 			</div>
 		</div>

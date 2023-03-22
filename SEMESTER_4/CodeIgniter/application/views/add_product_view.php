@@ -5,9 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link
-        href="<?= base_url() ?>assets/bootstrap/css/bootstrap.min.css"
-        rel="stylesheet">
+    <link href="<?= base_url() ?>assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <title>Add Produk</title>
 </head>
 
@@ -22,10 +20,8 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
                 <div class="navbar-nav">
-                    <a class="nav-link" aria-current="page"
-                        href="<?= base_url() ?>">Home</a>
-                    <a class="nav-link"
-                        href="<?= base_url() ?>index.php/product/index">Product</a>
+                    <a class="nav-link" aria-current="page" href="<?= base_url() ?>">Home</a>
+                    <a class="nav-link" href="<?= base_url() ?>product/index">Product</a>
                 </div>
             </div>
         </div>
@@ -38,9 +34,7 @@
                         Form Tambah Product
                     </div>
                     <div class="card-body">
-                        <form
-                            action="<?= site_url('product/save'); ?>"
-                            method="post">
+                        <form action="<?= site_url('product/save'); ?>" method="post">
                             <div>
                                 <label class="form-label" for="product">Product Name</label>
                                 <input class="form-control" type="text" name="product_name" placeholder="Product Name"
@@ -52,8 +46,8 @@
                                     placeholder="Product Price" required>
                             </div>
                             <button type="submit" class="btn btn-success float-end mt-2">Submit</button>
-                            <a href="<?= site_url('product'); ?>"
-                                class="btn btn-primary float-end mt-2  me-2"> Batal</a>
+                            <a href="<?= site_url('product'); ?>" class="btn btn-primary float-end mt-2  me-2">
+                                Batal</a>
                         </form>
                     </div>
                 </div>
