@@ -12,7 +12,6 @@ class Product extends CI_Controller
     public function index($row_no = 0)
     {
         //search text
-        $search_text = "";
         $searchCode = "";
         $searchName = "";
         $searchPrice = "";
@@ -67,7 +66,6 @@ class Product extends CI_Controller
 
         $data['row'] = $row_no;
 
-        $data['search'] = $search_text;
         $data['searchCode'] = $searchCode;
         $data['searchName'] = $searchName;
         $data['searchPrice'] = $searchPrice;

@@ -74,11 +74,11 @@ $active_group = 'default';
 $query_builder = true;
 
 $db['default'] = array(
-    'dsn'	=> '',
+    'dsn' => '',
     'hostname' => 'localhost',
     'username' => 'rizal',
     'password' => 'rizal',
-    'database' => 'tesci',
+    'database' => 'db_tugas_ci',
     'dbdriver' => 'mysqli',
     'dbprefix' => '',
     'pconnect' => false,
