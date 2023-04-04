@@ -15,31 +15,22 @@ class Product extends CI_Controller
         $searchCode = "";
         $searchName = "";
         $searchPrice = "";
-        if ($this->input->post('submitCode') != '') {
+        if ($this->input->post('search') != '') {
             $searchCode = $this->input->post('searchCode');
-            $this->session->set_userdata("searchCode", $searchCode);
-            $this->session->set_userdata("searchName", "");
-            $this->session->set_userdata("searchPrice", "");
-        } elseif ($this->input->post('submitName') != '') {
             $searchName = $this->input->post('searchName');
-            $this->session->set_userdata("searchCode", "");
-            $this->session->set_userdata("searchName", $searchName);
-            $this->session->set_userdata("searchPrice", "");
-        } elseif ($this->input->post('submitPrice') != '') {
             $searchPrice = $this->input->post('searchPrice');
-            $this->session->set_userdata("searchCode", "");
-            $this->session->set_userdata("searchName", "");
+            $this->session->set_userdata("searchCode", $searchCode);
+            $this->session->set_userdata("searchName", $searchName);
             $this->session->set_userdata("searchPrice", $searchPrice);
         } else {
             if ($this->session->userdata('searchCode') != "") {
                 $searchCode = $this->session->userdata('searchCode');
-                $this->session->set_userdata("searchCode", $searchCode);
-            } elseif ($this->session->userdata('searchName') != "") {
+            }
+            if ($this->session->userdata('searchName') != "") {
                 $searchName = $this->session->userdata('searchName');
-                $this->session->set_userdata("searchName", $searchName);
-            } elseif ($this->session->userdata('searchPrice') != "") {
+            }
+            if ($this->session->userdata('searchPrice') != "") {
                 $searchPrice = $this->session->userdata('searchPrice');
-                $this->session->set_userdata("searchPrice", $searchPrice);
             }
         }
 

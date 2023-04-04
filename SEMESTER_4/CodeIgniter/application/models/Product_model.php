@@ -7,13 +7,9 @@ class Product_model extends CI_Model
         $this->db->select('*');
         $this->db->from('product');
 
-        if ($searchCode != '') {
-            $this->db->like('product_code', $searchCode);
-        } elseif ($searchName != '') {
-            $this->db->like('product_name', $searchName);
-        } elseif ($searchPrice != '') {
-            $this->db->like('product_price', $searchPrice);
-        }
+        $this->db->like('product_code', $searchCode);
+        $this->db->like('product_name', $searchName);
+        $this->db->like('product_price', $searchPrice);
 
 
         $result = $this->db->limit($rowperpage, $rowno)->get();
@@ -62,13 +58,10 @@ class Product_model extends CI_Model
         $this->db->select('*');
         $this->db->from('product');
 
-        if ($searchCode != '') {
-            $this->db->like('product_code', $searchCode);
-        } elseif ($searchName != '') {
-            $this->db->like('product_name', $searchName);
-        } elseif ($searchPrice != '') {
-            $this->db->like('product_price', $searchPrice);
-        }
+
+        $this->db->like('product_code', $searchCode);
+        $this->db->like('product_name', $searchName);
+        $this->db->like('product_price', $searchPrice);
 
         $result = $this->db->count_all_results();
 
