@@ -9,18 +9,34 @@
   
 }
 
-
-
 @media screen and (max-width: 767px) {
-.sidebar {
-  transform: translateX(-300px);
-  width: 0px;
-  
+  .sidebar {
+    transform: translateX(-300px);
+    width: 0px;
+    
+  }
+
+  .desk {
+    transform: translateX(0);
+    width: 300px;
+    
+  }
 }
 
-.desk {
-  transform: translateX(0);
-  width: 300px;
-  
+.tblResponsive {
+  overflow-y: scroll;
 }
+
+th:nth-child(1), td:nth-child(1) {
+  position: sticky;
+  left: 0;
+  z-index: 1;
+  background-color: rgb(247, 247, 247);
 }
+th:nth-child(2), td:nth-child(2) {
+  position: sticky;
+  left: 51px;
+  z-index: 1;
+  background-color: rgb(247, 247, 247);
+}
+

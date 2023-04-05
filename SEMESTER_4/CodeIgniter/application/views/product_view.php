@@ -16,70 +16,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
 </head>
 
 <body>
-
-
-    <!-- <div class="collapse navbar-collapse bg-light p-0 mt-0 d-flex flex-column mobileMenu" id="navbarSupportedContent">
-        <div class="navbar-nav align-self-stretch list-group min-vh-100">
-            <div class="list-group-item">
-
-
-                <div class="row align-items-center ">
-                    <div class="col-4">
-                        <img src="<?= base_url() ?>assets/images/profile.jpg" class="rounded-circle mb-3"
-                            style="width: 80px;" alt="Avatar" />
-                    </div>
-                    <div class="col-8 justify-content-center">
-                        <h5 class="mb-2"><strong>Rizal Faizin Firdaus</strong></h5>
-                        <p class="text-muted">Rizal's Company Lab</p>
-                    </div>
-                </div>
-
-            </div>
-            <a href="<?= base_url() ?>" class="list-group-item list-group-item-action">Home</a>
-            <a href="<?= base_url() ?>product/index" class="list-group-item list-group-item-action active">Product</a>
-            <a href="<?= base_url() ?>" class="list-group-item list-group-item-action">Transaction History</a>
-            <a href="<?= base_url() ?>" class="list-group-item list-group-item-action">Logout</a>
-            <a href="<?= base_url() ?>" class="list-group-item list-group-item-action">Home</a>
-            <a href="<?= base_url() ?>product/index" class="list-group-item list-group-item-action active">Product</a>
-            <a href="<?= base_url() ?>" class="list-group-item list-group-item-action">Transaction History</a>
-            <a href="<?= base_url() ?>" class="list-group-item list-group-item-action">Logout</a>
-            <a href="<?= base_url() ?>" class="list-group-item list-group-item-action">Home</a>
-            <a href="<?= base_url() ?>product/index" class="list-group-item list-group-item-action active">Product</a>
-            <a href="<?= base_url() ?>" class="list-group-item list-group-item-action">Transaction History</a>
-            <a href="<?= base_url() ?>" class="list-group-item list-group-item-action">Logout</a>
-            <a href="<?= base_url() ?>" class="list-group-item list-group-item-action">Home</a>
-            <a href="<?= base_url() ?>product/index" class="list-group-item list-group-item-action active">Product</a>
-            <a href="<?= base_url() ?>" class="list-group-item list-group-item-action">Transaction History</a>
-            <a href="<?= base_url() ?>" class="list-group-item list-group-item-action">Logout</a>
-        </div>
-
-
-
-
-
-    </div>
-
-    <div class="overlay"></div> -->
-    <!-- <nav class="navbar navbar-collapse navbar-light bg-light justify-content-sm-start fixed-top" aria-expanded="false">
-        <div class="container-fluid">
-            <a class="navbar-brand order-1 ml-2 mr-auto" href="#">Rizal's Company Lab</a>
-            <button class="navbar-toggler align-self-start" aria-expanded="false" type="button">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-
-
-        </div>
-
-    </nav> -->
-
-
-
-
     <div class="row m-0 p-0">
         <div class="vh-100 p-0 m-0 sidebar overflow-auto" id="col1" style="">
             <div class="list-group-item">
-
-
                 <div class="row align-items-center overflow-hidden">
                     <div class="col-3">
                         <img src="<?= base_url() ?>assets/images/profile.jpg" class="rounded-circle mb-3 w-100"
@@ -90,7 +29,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
                         <p class="text-muted text-nowrap">Rizal's Company Lab</p>
                     </div>
                 </div>
-
             </div>
             <a href="<?= base_url() ?>" class="list-group-item list-group-item-action">Home</a>
             <a href="<?= base_url() ?>product/index" class="list-group-item list-group-item-action active">Product</a>
@@ -110,16 +48,12 @@ defined('BASEPATH') or exit('No direct script access allowed');
             <a href="<?= base_url() ?>" class="list-group-item list-group-item-action">Logout</a>
         </div>
 
-
-
-
-        <div class="col overflow-auto p-0 m-0">
-
+        <div class="col overflow-auto p-0 m-0 vh-100">
             <nav class="navbar navbar-light bg-light">
                 <button class="navbar-toggler" id="toggleNav" type="button">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <a class="navbar-brand" href="#">Navbar</a>
+                <a class="navbar-brand" href="<?= base_url() ?>">Rizal's Company Lab</a>
             </nav>
             <div class="container">
                 <h1>Product View</h1>
@@ -165,17 +99,85 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 
                         <div class="row justify-content-center mt-1">
-                            <div class="col-md-12 table-responsive">
-                                <table class="table table-hover">
+                            <div class="col-md-12 tblResponsive p-0 m-0">
+                                <table class="table">
                                     <thead>
                                         <tr>
                                             <th>No.</th>
                                             <th>Product Code</th>
                                             <th>Product Name</th>
+                                            <th>Price</th>
+                                            <th>field 1</th>
+                                            <th>field 2</th>
+                                            <th>field 3</th>
+                                            <th>field 4</th>
+                                            <th>field 5</th>
+                                            <th>field 6</th>
+                                            <th>field 7</th>
                                             <th>field 8</th>
+                                            <th>field 9</th>
+                                            <th>field 10</th>
+                                            <th>Action</th>
                                         </tr>
                                     </thead>
+                                    <tbody>
+                                        <?php
+                                        $count = $row + 1;
+                                        foreach ($product->result() as $row):
+                                            ?>
+                                            <tr>
+                                                <td>
+                                                    <?= $count; ?>
+                                                </td>
+                                                <td>
+                                                    <?= $row->product_code; ?>
+                                                </td>
+                                                <td>
+                                                    <?= $row->product_name; ?>
+                                                </td>
+                                                <td>
+                                                    <?= number_format($row->product_price); ?>
+                                                </td>
 
+                                                <td>
+                                                    <?= $row->product_name; ?>
+                                                </td>
+                                                <td>
+                                                    <?= number_format($row->product_price); ?>
+                                                </td>
+                                                <td>
+                                                    <?= $row->product_name; ?>
+                                                </td>
+                                                <td>
+                                                    <?= number_format($row->product_price); ?>
+                                                </td>
+                                                <td>
+                                                    <?= $row->product_name; ?>
+                                                </td>
+                                                <td>
+                                                    <?= number_format($row->product_price); ?>
+                                                </td>
+                                                <td>
+                                                    <?= $row->product_name; ?>
+                                                </td>
+                                                <td>
+                                                    <?= number_format($row->product_price); ?>
+                                                </td>
+                                                <td>
+                                                    <?= $row->product_name; ?>
+                                                </td>
+                                                <td>
+                                                    <?= number_format($row->product_price); ?>
+                                                </td>
+                                                <td>
+                                                    <a href="<?= site_url('product/get_edit/' . $row->product_code); ?>"
+                                                        class="btn btn-warning">Update</a>
+                                                    <a href="<?= site_url('product/get_delete/' . $row->product_code); ?>"
+                                                        class="btn btn-danger">Delete</a>
+                                                </td>
+                                            </tr>
+                                            <?php $count++; endforeach; ?>
+                                    </tbody>
                                 </table>
 
 
