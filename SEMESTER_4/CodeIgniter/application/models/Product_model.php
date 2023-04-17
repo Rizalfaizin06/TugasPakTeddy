@@ -2,6 +2,12 @@
 
 class Product_model extends CI_Model
 {
+    public function get_all_product()
+    {
+        $result = $this->db->get('product');
+        return $result;
+    }
+
     public function get_product($rowno, $rowperpage, $searchCode = "", $searchName = "", $searchPrice = "")
     {
         $this->db->select('*');

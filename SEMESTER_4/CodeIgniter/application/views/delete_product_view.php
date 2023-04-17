@@ -36,18 +36,26 @@ defined('BASEPATH') or exit('No direct script access allowed');
             </div>
             <a href="<?= base_url() ?>" class="list-group-item list-group-item-action">Home</a>
             <a href="<?= base_url() ?>product/index" class="list-group-item list-group-item-action active">Product</a>
+            <a href="<?= base_url('Export') ?>" target="_blank" class="list-group-item list-group-item-action">Export
+                Product</a>
             <a href="<?= base_url() ?>" class="list-group-item list-group-item-action">Transaction History</a>
             <a href="<?= base_url() ?>" class="list-group-item list-group-item-action">Logout</a>
             <a href="<?= base_url() ?>" class="list-group-item list-group-item-action">Home</a>
             <a href="<?= base_url() ?>product/index" class="list-group-item list-group-item-action active">Product</a>
+            <a href="<?= base_url('Export') ?>" target="_blank" class="list-group-item list-group-item-action">Export
+                Product</a>
             <a href="<?= base_url() ?>" class="list-group-item list-group-item-action">Transaction History</a>
             <a href="<?= base_url() ?>" class="list-group-item list-group-item-action">Logout</a>
             <a href="<?= base_url() ?>" class="list-group-item list-group-item-action">Home</a>
             <a href="<?= base_url() ?>product/index" class="list-group-item list-group-item-action active">Product</a>
+            <a href="<?= base_url('Export') ?>" target="_blank" class="list-group-item list-group-item-action">Export
+                Product</a>
             <a href="<?= base_url() ?>" class="list-group-item list-group-item-action">Transaction History</a>
             <a href="<?= base_url() ?>" class="list-group-item list-group-item-action">Logout</a>
             <a href="<?= base_url() ?>" class="list-group-item list-group-item-action">Home</a>
             <a href="<?= base_url() ?>product/index" class="list-group-item list-group-item-action active">Product</a>
+            <a href="<?= base_url('Export') ?>" target="_blank" class="list-group-item list-group-item-action">Export
+                Product</a>
             <a href="<?= base_url() ?>" class="list-group-item list-group-item-action">Transaction History</a>
             <a href="<?= base_url() ?>" class="list-group-item list-group-item-action">Logout</a>
         </div>

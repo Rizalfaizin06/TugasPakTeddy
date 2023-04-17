@@ -32,18 +32,26 @@ defined('BASEPATH') or exit('No direct script access allowed');
             </div>
             <a href="<?= base_url() ?>" class="list-group-item list-group-item-action">Home</a>
             <a href="<?= base_url() ?>product/index" class="list-group-item list-group-item-action active">Product</a>
+            <a href="<?= base_url('Export') ?>" target="_blank" class="list-group-item list-group-item-action">Export
+                Product</a>
             <a href="<?= base_url() ?>" class="list-group-item list-group-item-action">Transaction History</a>
             <a href="<?= base_url() ?>" class="list-group-item list-group-item-action">Logout</a>
             <a href="<?= base_url() ?>" class="list-group-item list-group-item-action">Home</a>
             <a href="<?= base_url() ?>product/index" class="list-group-item list-group-item-action active">Product</a>
+            <a href="<?= base_url('Export') ?>" target="_blank" class="list-group-item list-group-item-action">Export
+                Product</a>
             <a href="<?= base_url() ?>" class="list-group-item list-group-item-action">Transaction History</a>
             <a href="<?= base_url() ?>" class="list-group-item list-group-item-action">Logout</a>
             <a href="<?= base_url() ?>" class="list-group-item list-group-item-action">Home</a>
             <a href="<?= base_url() ?>product/index" class="list-group-item list-group-item-action active">Product</a>
+            <a href="<?= base_url('Export') ?>" target="_blank" class="list-group-item list-group-item-action">Export
+                Product</a>
             <a href="<?= base_url() ?>" class="list-group-item list-group-item-action">Transaction History</a>
             <a href="<?= base_url() ?>" class="list-group-item list-group-item-action">Logout</a>
             <a href="<?= base_url() ?>" class="list-group-item list-group-item-action">Home</a>
             <a href="<?= base_url() ?>product/index" class="list-group-item list-group-item-action active">Product</a>
+            <a href="<?= base_url('Export') ?>" target="_blank" class="list-group-item list-group-item-action">Export
+                Product</a>
             <a href="<?= base_url() ?>" class="list-group-item list-group-item-action">Transaction History</a>
             <a href="<?= base_url() ?>" class="list-group-item list-group-item-action">Logout</a>
         </div>
@@ -60,6 +68,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
                 <!-- <a href="<?= site_url(''); ?>" class="btn btn-primary">Home</a> -->
                 <a href="<?= site_url('product/add_new'); ?>" class="btn btn-primary mb-3">Tambah
+                    Product</a>
+                <a href="<?= site_url('Export'); ?>" target="_blank" class="btn btn-warning mb-3">Export
                     Product</a>
                 <div class="card">
                     <div class="card-header">
