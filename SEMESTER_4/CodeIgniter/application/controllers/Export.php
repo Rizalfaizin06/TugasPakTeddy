@@ -38,7 +38,9 @@ class Export extends CI_Controller
             $pdf->SetX(16);
             $count++;
         }
-        $pdf->Cell(180, 10, 'Total Product = ' . $count - 1 . '   ', 1, 0, 'R');
+        $totalProductInt = $count - 1;
+        $totalProductString = 'Total Product = ' . $totalProductInt . '    ';
+        $pdf->Cell(180, 10, $totalProductString, 1, 0, 'R');
 
         $pdf->Output('I', 'Daftar Product.pdf');
     }
