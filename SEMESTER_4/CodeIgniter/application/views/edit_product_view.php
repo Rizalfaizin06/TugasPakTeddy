@@ -19,8 +19,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
     <div class="row m-0 p-0">
         <div class="vh-100 p-0 m-0 sidebar overflow-auto" id="col1" style="">
             <div class="list-group-item">
-
-
                 <div class="row align-items-center overflow-hidden">
                     <div class="col-3">
                         <img src="<?= base_url() ?>assets/images/profile.jpg" class="rounded-circle mb-3 w-100"
@@ -31,30 +29,91 @@ defined('BASEPATH') or exit('No direct script access allowed');
                         <p class="text-muted text-nowrap">Rizal's Company Lab</p>
                     </div>
                 </div>
-
             </div>
             <a href="<?= base_url() ?>" class="list-group-item list-group-item-action">Home</a>
             <a href="<?= base_url() ?>product/index" class="list-group-item list-group-item-action active">Product</a>
-            <a href="<?= base_url('Export') ?>" target="_blank" class="list-group-item list-group-item-action">Export
-                Product</a>
+
+
+            <div id="accordion">
+                <div class="card">
+                    <div class="list-group-item list-group-item-action btn btn-link text-left text-reset text-decoration-none"
+                        id="headingOne" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
+                        aria-controls="collapseOne">
+                        Export
+                    </div>
+
+                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                        <a href="<?= base_url('Export/pdf') ?>" target="_blank"
+                            class="list-group-item list-group-item-action">PDF</a>
+                        <a href="<?= base_url('Export/excel') ?>"
+                            class="list-group-item list-group-item-action">EXCEL</a>
+                    </div>
+                </div>
+
+            </div>
             <a href="<?= base_url() ?>" class="list-group-item list-group-item-action">Transaction History</a>
             <a href="<?= base_url() ?>" class="list-group-item list-group-item-action">Logout</a>
             <a href="<?= base_url() ?>" class="list-group-item list-group-item-action">Home</a>
             <a href="<?= base_url() ?>product/index" class="list-group-item list-group-item-action active">Product</a>
-            <a href="<?= base_url('Export') ?>" target="_blank" class="list-group-item list-group-item-action">Export
-                Product</a>
+            <div id="accordion">
+                <div class="card">
+                    <div class="list-group-item list-group-item-action btn btn-link text-left text-reset text-decoration-none"
+                        id="headingOne" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
+                        aria-controls="collapseOne">
+                        Export
+                    </div>
+
+                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                        <a href="<?= base_url('Export/pdf') ?>" target="_blank"
+                            class="list-group-item list-group-item-action">PDF</a>
+                        <a href="<?= base_url('Export/excel') ?>"
+                            class="list-group-item list-group-item-action">EXCEL</a>
+                    </div>
+                </div>
+
+            </div>
             <a href="<?= base_url() ?>" class="list-group-item list-group-item-action">Transaction History</a>
             <a href="<?= base_url() ?>" class="list-group-item list-group-item-action">Logout</a>
             <a href="<?= base_url() ?>" class="list-group-item list-group-item-action">Home</a>
             <a href="<?= base_url() ?>product/index" class="list-group-item list-group-item-action active">Product</a>
-            <a href="<?= base_url('Export') ?>" target="_blank" class="list-group-item list-group-item-action">Export
-                Product</a>
+            <div id="accordion">
+                <div class="card">
+                    <div class="list-group-item list-group-item-action btn btn-link text-left text-reset text-decoration-none"
+                        id="headingOne" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
+                        aria-controls="collapseOne">
+                        Export
+                    </div>
+
+                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                        <a href="<?= base_url('Export/pdf') ?>" target="_blank"
+                            class="list-group-item list-group-item-action">PDF</a>
+                        <a href="<?= base_url('Export/excel') ?>"
+                            class="list-group-item list-group-item-action">EXCEL</a>
+                    </div>
+                </div>
+
+            </div>
             <a href="<?= base_url() ?>" class="list-group-item list-group-item-action">Transaction History</a>
             <a href="<?= base_url() ?>" class="list-group-item list-group-item-action">Logout</a>
             <a href="<?= base_url() ?>" class="list-group-item list-group-item-action">Home</a>
             <a href="<?= base_url() ?>product/index" class="list-group-item list-group-item-action active">Product</a>
-            <a href="<?= base_url('Export') ?>" target="_blank" class="list-group-item list-group-item-action">Export
-                Product</a>
+            <div id="accordion">
+                <div class="card">
+                    <div class="list-group-item list-group-item-action btn btn-link text-left text-reset text-decoration-none"
+                        id="headingOne" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
+                        aria-controls="collapseOne">
+                        Export
+                    </div>
+
+                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
+                        <a href="<?= base_url('Export/pdf') ?>" target="_blank"
+                            class="list-group-item list-group-item-action">PDF</a>
+                        <a href="<?= base_url('Export/excel') ?>"
+                            class="list-group-item list-group-item-action">EXCEL</a>
+                    </div>
+                </div>
+
+            </div>
             <a href="<?= base_url() ?>" class="list-group-item list-group-item-action">Transaction History</a>
             <a href="<?= base_url() ?>" class="list-group-item list-group-item-action">Logout</a>
         </div>
