@@ -270,7 +270,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                                 <td>
                                                     <a href="<?= site_url('purcase/get_edit/' . $row->INVENTTRANSID); ?>"
                                                         class="btn btn-warning">Update</a>
-                                                    <a href="<?= site_url('product/get_delete/' . $row->INVENTTRANSID); ?>"
+                                                    <a href="<?= site_url('purcase/get_delete/' . $row->INVENTTRANSID . '/' . $row->PURCHID); ?> "
                                                         class="btn btn-danger">Delete</a>
                                                 </td>
                                             </tr>

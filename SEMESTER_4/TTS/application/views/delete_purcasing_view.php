@@ -138,7 +138,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                 </p>
                             <?php endif; ?>
                             <div class="card-header">
-                                Form Edit Purcase
+                                Delete This Purcase?
                             </div>
 
                             <div class="card-body">
@@ -146,7 +146,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                     <div class="form-row">
                                         <div class="col-md-6 mb-3">
                                             <label for="ACCOUNTNUM">Vendor</label>
-                                            <select class="custom-select" id="ACCOUNTNUM" name="ACCOUNTNUM" required>
+                                            <select class="custom-select" id="ACCOUNTNUM" name="ACCOUNTNUM" disabled
+                                                disabled required>
                                                 <?php
                                                 foreach ($vendor as $row):
                                                     ?>
@@ -158,7 +159,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                         </div>
                                         <div class="col-md-6 mb-3">
                                             <label for="ITEMID">Items</label>
-                                            <select class="custom-select" id="ITEMID" name="ITEMID" required>
+                                            <select class="custom-select" id="ITEMID" name="ITEMID" disabled required>
                                                 <?php
                                                 foreach ($items as $row):
                                                     ?>
@@ -171,18 +172,18 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                         <div class="col-md-4 mb-3">
                                             <label for="LINENUM">Line Number</label>
                                             <input type="number" class="form-control" id="LINENUM" name="LINENUM"
-                                                min="0" value="<?= $LINENUM; ?>" required>
+                                                min="0" value="<?= $LINENUM; ?>" disabled required>
                                         </div>
                                         <div class="col-md-4 mb-3">
                                             <label for="QTYORDERED">Quantity Order</label>
                                             <input type="number" class="form-control" id="QTYORDERED" name="QTYORDERED"
-                                                value="<?= $QTYORDERED; ?>" min="0" required>
+                                                value="<?= $QTYORDERED; ?>" min="0" disabled required>
                                         </div>
                                         <div class="col-md-4 mb-3">
                                             <label for="PURCHRECEIVEDNOW">Received Purcase</label>
                                             <input type="number" class="form-control" id="PURCHRECEIVEDNOW"
                                                 name="PURCHRECEIVEDNOW" value="<?= $PURCHRECEIVEDNOW; ?>" min="0"
-                                                required>
+                                                disabled required>
                                         </div>
 
                                     </div>
@@ -190,12 +191,12 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                         <div class="col-md-6 mb-3">
                                             <label for="PURCHPRICE">Purcase Price</label>
                                             <input type="number" class="form-control" id="PURCHPRICE" name="PURCHPRICE"
-                                                value="<?= $PURCHPRICE; ?>" min="0" required>
+                                                value="<?= $PURCHPRICE; ?>" min="0" disabled required>
                                         </div>
                                         <div class="col-md-6 mb-3">
                                             <label for="LINEAMOUNT">Line Amount</label>
                                             <input type="number" class="form-control" id="LINEAMOUNT" name="LINEAMOUNT"
-                                                value="<?= $LINEAMOUNT; ?>" min="0" required>
+                                                value="<?= $LINEAMOUNT; ?>" min="0" disabled required>
                                         </div>
 
                                     </div>
@@ -203,15 +204,16 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                         <div class="col-md-6 mb-3">
                                             <label for="DELIVERYDATE">Delivery Date</label>
                                             <input type="date" class="form-control" id="DELIVERYDATE"
-                                                name="DELIVERYDATE" value="<?= $DELIVERYDATE; ?>" required>
+                                                name="DELIVERYDATE" value="<?= $DELIVERYDATE; ?>" disabled required>
                                             <input type="hidden" class="form-control" id="INVENTTRANSID"
-                                                name="INVENTTRANSID" value="<?= $INVENTTRANSID; ?>" required>
+                                                name="INVENTTRANSID" value="<?= $INVENTTRANSID; ?>" disabled required>
                                             <input type="hidden" class="form-control" id="PURCHID" name="PURCHID"
-                                                value="<?= $PURCHID; ?>" required>
+                                                value="<?= $PURCHID; ?>" disabled required>
                                         </div>
                                         <div class="col-md-6 mb-3">
                                             <label for="PURCHSTATUS">Purcasing Status</label>
-                                            <select class="custom-select" id="PURCHSTATUS" name="PURCHSTATUS" required>
+                                            <select class="custom-select" id="PURCHSTATUS" name="PURCHSTATUS" disabled
+                                                required>
                                                 <option value="0" <?= ($PURCHSTATUS == 0) ? 'selected' : '' ?>>Pending
                                                 </option>
                                                 <option value="1" <?= ($PURCHSTATUS == 1) ? 'selected' : '' ?>>Done
@@ -225,8 +227,8 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                     <div class="form-row justify-content-end">
                                         <a href="<?= site_url('purcase'); ?>" class="btn btn-primary mr-2">
                                             Batal</a>
-                                        <button class="btn btn-success" type="submit" name="addPurcase"
-                                            value="addPurcase">Save Purcase</button>
+                                        <a href="<?= site_url('purcase/delete/' . $INVENTTRANSID . '/' . $PURCHID); ?> "
+                                            class="btn btn-danger">Delete</a>
                                     </div>
                                 </form>
                             </div>

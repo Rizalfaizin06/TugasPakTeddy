@@ -21,14 +21,17 @@ class Purcase_model extends CI_Model
         // $this->db->like('purcase_price', $searchPrice);
 
 
+        $this->db->order_by('INVENTTRANSID', 'DESC');
         $result = $this->db->limit($rowperpage, $rowno)->get();
         return $result;
     }
+
     public function get_vendor()
     {
         $result = $this->db->get('vendtable');
         return $result;
     }
+
     public function get_items()
     {
         $result = $this->db->get('inventtable');
@@ -48,6 +51,7 @@ class Purcase_model extends CI_Model
 
         return $result;
     }
+
     public function get_new_purchid()
     {
         $this->db->select('PURCHID');
@@ -58,7 +62,6 @@ class Purcase_model extends CI_Model
         $last_purchid = substr($purchid, strrpos($purchid, "-") + 1);
         $new_purchid = intval($last_purchid) + 1;
         $result = "PO-23-" . str_pad($new_purchid, 4, "0", STR_PAD_LEFT);
-
         return $result;
     }
 
@@ -86,6 +89,7 @@ class Purcase_model extends CI_Model
                 'PURCHRECEIVEDNOW' => $PURCHRECEIVEDNOW,
                 'LINEAMOUNT' => $LINEAMOUNT
             );
+            $this->db->insert('purchline', $data_purchline);
 
             $this->db->trans_commit();
             return true;
@@ -171,22 +175,28 @@ class Purcase_model extends CI_Model
         return $result;
     }
 
-    public function update($purcase_code, $purcase_name, $purcase_price)
+    public function delete($INVENTTRANSID, $PURCHID)
     {
-        $data = array(
-            'purcase_name' => $purcase_name,
-            'purcase_price' => $purcase_price
+        $this->db->trans_start();
 
-        );
+        try {
+            $this->db->where('INVENTTRANSID', $INVENTTRANSID);
+            $this->db->delete('purchline');
 
-        $this->db->where('purcase_code', $purcase_code);
-        $this->db->update('purchline', $data);
-    }
+            $this->db->where('PURCHID', $PURCHID);
+            $this->db->delete('purchtable');
 
-    public function delete($purcase_code)
-    {
-        $this->db->where('purcase_code', $purcase_code);
-        $this->db->delete('purchline');
+            $this->db->trans_complete();
+
+            if ($this->db->trans_status() === false) {
+                return false;
+            }
+
+            return true; // Transaksi berhasil
+        } catch (Exception $e) {
+            $this->db->trans_rollback();
+            return false;
+        }
     }
 
     //count total record

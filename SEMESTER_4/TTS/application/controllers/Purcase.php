@@ -168,26 +168,47 @@ class Purcase extends CI_Controller
 
     public function get_delete()
     {
-        $purcase_code = $this->uri->segment(3);
-        $result = $this->Purcase_model->get_purcase_id($purcase_code);
+        $INVENTTRANSID = $this->uri->segment(3);
+        $result = $this->Purcase_model->get_purcase_id($INVENTTRANSID);
 
-        if ($result->num_rows() > 0) {
-            $i = $result->row_array();
+        if ($result) {
+            // $i = $result->row_array();
             $data = array(
-                'purcase_code' => $i['purcase_code'],
-                'purcase_name' => $i['purcase_name'],
-                'purcase_price' => $i['purcase_price']
+                'INVENTTRANSID' => $result->INVENTTRANSID,
+                'PURCHID' => $result->PURCHID,
+                'LINENUM' => $result->LINENUM,
+                'ITEMID' => $result->ITEMID,
+                'PURCHPRICE' => $result->PURCHPRICE,
+                'QTYORDERED' => $result->QTYORDERED,
+                'PURCHRECEIVEDNOW' => $result->PURCHRECEIVEDNOW,
+                'LINEAMOUNT' => $result->LINEAMOUNT,
+                'INVOICEACCOUNT' => $result->INVOICEACCOUNT,
+                'DELIVERYDATE' => $result->DELIVERYDATE,
+                'PURCHSTATUS' => $result->PURCHSTATUS,
+                'ACCOUNTNUM' => $result->ACCOUNTNUM,
+                'NAME' => $result->NAME,
+                'vendor' => $this->Purcase_model->get_vendor()->result(),
+                'items' => $this->Purcase_model->get_items()->result(),
             );
-            $this->load->view('delete_purcase_view', $data);
-        } else {
-            echo "data tidak ditemukan";
+            var_dump($result);
+            // var_dump($this->Purcase_model->get_vendor()->result());
+            $data['vendor'] = $this->Purcase_model->get_vendor()->result();
+            $data['items'] = $this->Purcase_model->get_items()->result();
+            $this->load->view('delete_purcasing_view', $data);
         }
     }
 
     public function delete()
     {
-        $purcase_code = $this->uri->segment(3);
-        $this->Purcase_model->delete($purcase_code);
-        redirect('purcase');
+        $INVENTTRANSID = $this->uri->segment(3);
+        $PURCHID = $this->uri->segment(4);
+
+        if ($this->Purcase_model->delete($INVENTTRANSID, $PURCHID)) {
+
+            redirect('purcase');
+        } else {
+            redirect('purcase');
+
+        }
     }
 }
