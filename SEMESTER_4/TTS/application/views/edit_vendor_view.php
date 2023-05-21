@@ -138,27 +138,30 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                 </p>
                             <?php endif; ?>
                             <div class="card-header">
-                                Form Tambah Vendor
+                                Form Edit Vendor
                             </div>
 
                             <div class="card-body">
-                                <form action="<?= site_url('vendorController/save_vendor'); ?>" method="post">
+                                <form action="<?= site_url('vendorController/update_vendor'); ?>" method="post">
                                     <div class="form-row">
                                         <div class="col-md-12 mb-3">
                                             <label for="NAME">Vendor Name</label>
-                                            <input type="text" class="form-control" id="NAME" name="NAME" required>
+                                            <input type="text" class="form-control" id="NAME" name="NAME"
+                                                value="<?= $NAME; ?>" required>
                                         </div>
                                     </div>
                                     <div class="form-row">
                                         <div class="col-md-6 mb-3">
                                             <label for="ADDRESS">Adress</label>
                                             <input type="text" class="form-control" id="ADDRESS" name="ADDRESS"
-                                                required>
+                                                value="<?= $ADDRESS; ?>" required>
                                         </div>
                                         <div class="col-md-6 mb-3">
                                             <label for="PHONE">Phone</label>
                                             <input type="number" class="form-control" id="PHONE" name="PHONE" min="0"
-                                                required>
+                                                value="<?= $PHONE; ?>" required>
+                                            <input type="hidden" class="form-control" id="ACCOUNTNUM" name="ACCOUNTNUM"
+                                                min="0" value="<?= $ACCOUNTNUM; ?>" required>
                                         </div>
 
 
@@ -166,11 +169,11 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 
                                     <div class="form-row justify-content-end">
-                                        <a href="<?= site_url('product'); ?>" class="btn btn-primary mr-2">
+                                        <a href="<?= site_url('vendorController'); ?>" class="btn btn-primary mr-2">
                                             Batal</a>
                                         <button class="btn btn-success" type="submit" name="addPurcase"
                                             value="addPurcase">Save
-                                            Purcase</button>
+                                            Vendor</button>
                                     </div>
 
                                 </form>

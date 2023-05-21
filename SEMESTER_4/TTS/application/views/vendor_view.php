@@ -11,13 +11,11 @@ defined('BASEPATH') or exit('No direct script access allowed');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="<?= base_url() ?>assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="<?= base_url() ?>assets/css/style.css" />
-    <title>Add Product View</title>
+    <title>Vendor View</title>
 
 </head>
 
 <body>
-
-
     <div class="row m-0 p-0">
         <div class="vh-100 p-0 m-0 sidebar overflow-auto" id="col1" style="">
             <div class="list-group-item">
@@ -120,7 +118,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
             <a href="<?= base_url() ?>" class="list-group-item list-group-item-action">Logout</a>
         </div>
 
-        <div class="col overflow-auto p-0 m-0">
+        <div class="col overflow-auto p-0 m-0 vh-100">
             <nav class="navbar navbar-light bg-light">
                 <button class="navbar-toggler" id="toggleNav" type="button">
                     <span class="navbar-toggler-icon"></span>
@@ -128,60 +126,136 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 <a class="navbar-brand" href="<?= base_url() ?>">Rizal's Company Lab</a>
             </nav>
             <div class="container">
-                <div class="row m-3 justify-content-center">
-                    <div class="col col-md-8">
-                        <div class="card">
+                <h1>Purcase View</h1>
 
-                            <?php if (isset($error)): ?>
-                                <p class="text-center text-danger pt-3">
-                                    <?= $error ?>
-                                </p>
-                            <?php endif; ?>
-                            <div class="card-header">
-                                Form Tambah Vendor
-                            </div>
-
-                            <div class="card-body">
-                                <form action="<?= site_url('vendorController/save_vendor'); ?>" method="post">
-                                    <div class="form-row">
-                                        <div class="col-md-12 mb-3">
-                                            <label for="NAME">Vendor Name</label>
-                                            <input type="text" class="form-control" id="NAME" name="NAME" required>
-                                        </div>
-                                    </div>
-                                    <div class="form-row">
-                                        <div class="col-md-6 mb-3">
-                                            <label for="ADDRESS">Adress</label>
-                                            <input type="text" class="form-control" id="ADDRESS" name="ADDRESS"
-                                                required>
-                                        </div>
-                                        <div class="col-md-6 mb-3">
-                                            <label for="PHONE">Phone</label>
-                                            <input type="number" class="form-control" id="PHONE" name="PHONE" min="0"
-                                                required>
-                                        </div>
-
-
-                                    </div>
-
-
-                                    <div class="form-row justify-content-end">
-                                        <a href="<?= site_url('product'); ?>" class="btn btn-primary mr-2">
-                                            Batal</a>
-                                        <button class="btn btn-success" type="submit" name="addPurcase"
-                                            value="addPurcase">Save
-                                            Purcase</button>
-                                    </div>
-
-                                </form>
-                            </div>
-                        </div>
+                <!-- <a href="<?= site_url(''); ?>" class="btn btn-primary">Home</a> -->
+                <!-- <a href="<?= site_url('purcase/add_new_purcase'); ?>" class="btn btn-primary mb-3">Tambah
+                    Purcase</a> -->
+                <a href="<?= site_url('vendorController/add_new_vendor'); ?>" class="btn btn-primary mb-3">Tambah
+                    Vendor</a>
+                <!-- <a href="<?= site_url('purcase/add_new_items'); ?>" class="btn btn-primary mb-3">Tambah
+                    Items</a> -->
+                <!-- <a href="<?= site_url('Export'); ?>" target="_blank" class="btn btn-warning mb-3">Export Product</a> -->
+                <!-- Example single danger button -->
+                <div class="btn-group mb-3">
+                    <button type="button" class="btn btn-warning dropdown-toggle " data-toggle="dropdown"
+                        aria-haspopup="true" aria-expanded="false">
+                        Export
+                    </button>
+                    <div class="dropdown-menu">
+                        <a class="dropdown-item" target="_blank" href="<?= site_url('Export/pdf'); ?>">PDF</a>
+                        <a class="dropdown-item" href="<?= site_url('Export/excel'); ?>">EXCEL</a>
                     </div>
                 </div>
-            </div>
 
+
+
+
+                <div class="card">
+                    <div class="card-header">
+                        <form action="<?= base_url() ?>product/index" method="post">
+                            <div class="d-flex flex-column text-center mb-2">
+                                <h3>Filter Product</h3>
+                            </div>
+                            <div class="d-flex flex-sm-row flex-column justify-content-around">
+                                <div class="flex-fill">
+                                    <input type="text" name="searchCode" value="<?= $searchCode; ?>"
+                                        class="form-control" placeholder="Search Product Code">
+                                    <!-- <input type="submit" name="submitCode" value="submit" class="btn btn-primary"> -->
+                                </div>
+                                <div class="p-2"></div>
+                                <div class="flex-fill">
+                                    <input type="text" name="searchName" value="<?= $searchName; ?>"
+                                        class="form-control" placeholder="Search Product Name">
+                                    <!-- <input type="submit" name="submitName" value="submit" class="btn btn-primary"> -->
+                                </div>
+                                <div class="p-2"></div>
+
+                                <div class="flex-fill">
+                                    <input type="text" name="searchPrice" value="<?= $searchPrice; ?>"
+                                        class="form-control" placeholder="Search Product Price">
+                                </div>
+
+                            </div>
+                            <div class="d-flex flex-column text-center mb-2 pt-3 px-3">
+                                <input type="submit" name="search" value="Search" class="btn btn-primary">
+                            </div>
+
+                        </form>
+
+                    </div>
+
+                    <div class="card-body">
+                        <div class="row justify-content-center mt-1">
+                            <div class="col-md-12 tblResponsive p-0 m-0">
+                                <table class="table">
+                                    <thead>
+                                        <tr>
+                                            <th>No.</th>
+                                            <th>Account Number</th>
+                                            <th>Vendor Name</th>
+                                            <th>Address</th>
+                                            <th>Phone</th>
+                                            <th>Created</th>
+                                            <th>Action</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php
+                                        $count = $row + 1;
+                                        foreach ($vendor->result() as $row):
+                                            ?>
+                                            <tr>
+                                                <td>
+                                                    <?= $count; ?>
+                                                </td>
+
+                                                <td>
+                                                    <?= $row->ACCOUNTNUM; ?>
+                                                </td>
+                                                <td>
+                                                    <?= $row->NAME; ?>
+                                                </td>
+                                                <td>
+                                                    <?= $row->ADDRESS; ?>
+                                                </td>
+                                                <td>
+                                                    <?= $row->PHONE; ?>
+                                                </td>
+                                                <td>
+                                                    <?= $row->CREATEDDATETIME; ?>
+                                                </td>
+
+                                                <td>
+                                                    <a href="<?= site_url('vendorController/get_edit/' . $row->ACCOUNTNUM); ?>"
+                                                        class="btn btn-warning">Update</a>
+                                                    <a href="<?= site_url('vendorController/get_delete/' . $row->ACCOUNTNUM); ?> "
+                                                        class="btn btn-danger">Delete</a>
+                                                </td>
+                                            </tr>
+                                            <?php $count++; endforeach; ?>
+                                    </tbody>
+                                </table>
+
+
+                            </div>
+                            <div class="d-flex flex-column justify-content-center">
+                                <h6 class="text-center">
+                                    Total Product =
+                                    <?= $totalRow; ?>
+                                </h6>
+
+                                <div>
+                                    <?= $pagination; ?>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
         </div>
-    </div>
     </div>
     <script src="<?= base_url() ?>assets/js/jquery.min.js">
     </script>
