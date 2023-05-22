@@ -121,7 +121,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
 									dan juga item</p>
 								<a href="<?= site_url('Purcase'); ?>" class="btn btn-primary">View
 									Purcase</a>
-								<a href="<?= site_url('Vendor'); ?>" class="btn btn-primary">View
+								<a href="<?= site_url('VendorController'); ?>" class="btn btn-primary">View
 									Vendor</a>
 								<a href="<?= site_url('Items'); ?>" class="btn btn-primary">View
 									Items</a>
