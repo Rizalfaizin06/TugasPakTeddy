@@ -241,7 +241,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                                     <?= $row->DELIVERYDATE; ?>
                                                 </td>
                                                 <td>
-                                                    <?= $row->PURCHSTATUS; ?>
+                                                    <?= ($row->PURCHSTATUS == 0) ? "Pending" : "Done" ?>
                                                 </td>
 
 

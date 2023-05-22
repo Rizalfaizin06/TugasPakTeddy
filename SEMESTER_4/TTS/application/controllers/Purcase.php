@@ -284,7 +284,7 @@ class Purcase extends CI_Controller
             $pdf->Cell(40, 10, $row->PURCHRECEIVEDNOW, 1, 0, 'C');
             $pdf->Cell(40, 10, $row->CREATEDDATETIME, 1, 0, 'C');
             $pdf->Cell(40, 10, $row->DELIVERYDATE, 1, 0, 'C');
-            $pdf->Cell(40, 10, $row->PURCHSTATUS, 1, 1, 'C');
+            $pdf->Cell(40, 10, ($row->PURCHSTATUS == 0) ? "Pending" : "Done", 1, 1, 'C');
 
             $pdf->SetX(16);
             $count++;
@@ -366,7 +366,7 @@ class Purcase extends CI_Controller
             echo "<td style='text-align:center;'>" . $row->PURCHRECEIVEDNOW . "</td>";
             echo "<td style='text-align:center;'>" . $row->CREATEDDATETIME . "</td>";
             echo "<td style='text-align:center;'>" . $row->DELIVERYDATE . "</td>";
-            echo "<td style='text-align:center;'>" . $row->PURCHSTATUS . "</td>";
+            echo "<td style='text-align:center;'>" . ($row->PURCHSTATUS == 0) ? "Pending" : "Done" . "</td>";
             echo "</tr>";
             $count++;
         }
