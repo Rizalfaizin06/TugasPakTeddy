@@ -2,21 +2,30 @@
 
 class Vendor_model extends CI_Model
 {
-    public function get_all_vendor()
+    public function get_all_vendor($searchACCOUNTNUM = "", $searchNAME = "", $searchADDRESS = "")
     {
-        $result = $this->db->get('purchline');
+        $this->db->select('*');
+        $this->db->from('vendtable');
+
+        $this->db->like('ACCOUNTNUM', $searchACCOUNTNUM);
+        $this->db->like('NAME', $searchNAME);
+        $this->db->like('ADDRESS', $searchADDRESS);
+
+        $this->db->order_by('ACCOUNTNUM', 'DESC');
+        $result = $this->db->get();
+
         return $result;
     }
 
-    public function get_vendor($rowno, $rowperpage, $searchCode = "", $searchName = "", $searchPrice = "")
+    public function get_vendor($rowno, $rowperpage, $searchACCOUNTNUM = "", $searchNAME = "", $searchADDRESS = "")
     {
         $this->db->select('*');
         $this->db->from('vendtable');
 
 
-        // $this->db->like('vendor_code', $searchCode);
-        // $this->db->like('vendor_name', $searchName);
-        // $this->db->like('vendor_price', $searchPrice);
+        $this->db->like('ACCOUNTNUM', $searchACCOUNTNUM);
+        $this->db->like('NAME', $searchNAME);
+        $this->db->like('ADDRESS', $searchADDRESS);
 
 
         $this->db->order_by('ACCOUNTNUM', 'DESC');
@@ -80,15 +89,15 @@ class Vendor_model extends CI_Model
     }
 
     //count total record
-    public function get_vendor_count($searchCode = "", $searchName = "", $searchPrice = "")
+    public function get_vendor_count($searchACCOUNTNUM = "", $searchNAME = "", $searchADDRESS = "")
     {
         $this->db->select('*');
         $this->db->from('vendtable');
 
 
-        // $this->db->like('vendor_code', $searchCode);
-        // $this->db->like('vendor_name', $searchName);
-        // $this->db->like('vendor_price', $searchPrice);
+        $this->db->like('ACCOUNTNUM', $searchACCOUNTNUM);
+        $this->db->like('NAME', $searchNAME);
+        $this->db->like('ADDRESS', $searchADDRESS);
 
         $result = $this->db->count_all_results();
 

@@ -31,7 +31,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 </div>
             </div>
             <a href="<?= base_url() ?>" class="list-group-item list-group-item-action">Home</a>
-            <a href="<?= base_url() ?>items/index" class="list-group-item list-group-item-action active">items</a>
+            <a href="<?= base_url() ?>purcase/index" class="list-group-item list-group-item-action ">Purcase</a>
+            <a href="<?= base_url() ?>purcase/add_new_purcase" class="list-group-item list-group-item-action ">Add
+                Purcase</a>
 
 
             <div id="accordion">
@@ -39,76 +41,56 @@ defined('BASEPATH') or exit('No direct script access allowed');
                     <div class="list-group-item list-group-item-action btn btn-link text-left text-reset text-decoration-none"
                         id="headingOne" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
                         aria-controls="collapseOne">
-                        Export
+                        Export Purcase
                     </div>
 
                     <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
-                        <a href="<?= base_url('Export/pdf') ?>" target="_blank"
+                        <a href="<?= base_url('Purcase/pdf') ?>" target="_blank"
                             class="list-group-item list-group-item-action">PDF</a>
-                        <a href="<?= base_url('Export/excel') ?>"
+                        <a href="<?= base_url('Purcase/excel') ?>"
                             class="list-group-item list-group-item-action">EXCEL</a>
                     </div>
                 </div>
 
             </div>
-            <a href="<?= base_url() ?>" class="list-group-item list-group-item-action">Transaction History</a>
-            <a href="<?= base_url() ?>" class="list-group-item list-group-item-action">Logout</a>
-            <a href="<?= base_url() ?>" class="list-group-item list-group-item-action">Home</a>
-            <a href="<?= base_url() ?>items/index" class="list-group-item list-group-item-action active">items</a>
+            <a href="<?= base_url() ?>VendorController/index" class="list-group-item list-group-item-action ">Vendor</a>
+            <a href="<?= base_url() ?>VendorController/add_new_vendor"
+                class="list-group-item list-group-item-action">Add
+                Vendor</a>
+
             <div id="accordion">
                 <div class="card">
                     <div class="list-group-item list-group-item-action btn btn-link text-left text-reset text-decoration-none"
-                        id="headingOne" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
-                        aria-controls="collapseOne">
-                        Export
+                        id="headingTwo" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
+                        aria-controls="collapseTwo">
+                        Export Vendor
                     </div>
 
-                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
-                        <a href="<?= base_url('Export/pdf') ?>" target="_blank"
+                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                        <a href="<?= base_url('VendorController/pdf') ?>" target="_blank"
                             class="list-group-item list-group-item-action">PDF</a>
-                        <a href="<?= base_url('Export/excel') ?>"
+                        <a href="<?= base_url('VendorController/excel') ?>"
                             class="list-group-item list-group-item-action">EXCEL</a>
                     </div>
                 </div>
 
             </div>
-            <a href="<?= base_url() ?>" class="list-group-item list-group-item-action">Transaction History</a>
-            <a href="<?= base_url() ?>" class="list-group-item list-group-item-action">Logout</a>
-            <a href="<?= base_url() ?>" class="list-group-item list-group-item-action">Home</a>
-            <a href="<?= base_url() ?>items/index" class="list-group-item list-group-item-action active">items</a>
+            <a href="<?= base_url() ?>Items/index" class="list-group-item list-group-item-action active">Items</a>
+            <a href="<?= base_url() ?>Items/add_new_items" class="list-group-item list-group-item-action">Add
+                Items</a>
+
             <div id="accordion">
                 <div class="card">
                     <div class="list-group-item list-group-item-action btn btn-link text-left text-reset text-decoration-none"
-                        id="headingOne" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
-                        aria-controls="collapseOne">
-                        Export
+                        id="headingThree" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true"
+                        aria-controls="collapseThree">
+                        Export Items
                     </div>
 
-                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
-                        <a href="<?= base_url('Export/pdf') ?>" target="_blank"
+                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                        <a href="<?= base_url('Items/pdf') ?>" target="_blank"
                             class="list-group-item list-group-item-action">PDF</a>
-                        <a href="<?= base_url('Export/excel') ?>"
-                            class="list-group-item list-group-item-action">EXCEL</a>
-                    </div>
-                </div>
-
-            </div>
-            <a href="<?= base_url() ?>" class="list-group-item list-group-item-action">Transaction History</a>
-            <a href="<?= base_url() ?>" class="list-group-item list-group-item-action">Logout</a>
-            <a href="<?= base_url() ?>" class="list-group-item list-group-item-action">Home</a>
-            <a href="<?= base_url() ?>items/index" class="list-group-item list-group-item-action active">items</a>
-            <div id="accordion">
-                <div class="card">
-                    <div class="list-group-item list-group-item-action btn btn-link text-left text-reset text-decoration-none"
-                        id="headingOne" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
-                        aria-controls="collapseOne">
-                        Export
-                    </div>
-
-                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
-                        <a href="<?= base_url('Export/pdf') ?>" target="_blank"
-                            class="list-group-item list-group-item-action">PDF</a>
-                        <a href="<?= base_url('Export/excel') ?>"
+                        <a href="<?= base_url('Items/excel') ?>"
                             class="list-group-item list-group-item-action">EXCEL</a>
                     </div>
                 </div>
@@ -117,7 +99,6 @@ defined('BASEPATH') or exit('No direct script access allowed');
             <a href="<?= base_url() ?>" class="list-group-item list-group-item-action">Transaction History</a>
             <a href="<?= base_url() ?>" class="list-group-item list-group-item-action">Logout</a>
         </div>
-
         <div class="col overflow-auto p-0 m-0 vh-100">
             <nav class="navbar navbar-light bg-light">
                 <button class="navbar-toggler" id="toggleNav" type="button">
@@ -126,25 +107,18 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 <a class="navbar-brand" href="<?= base_url() ?>">Rizal's Company Lab</a>
             </nav>
             <div class="container">
-                <h1>Purcase View</h1>
+                <h1>Items View</h1>
 
-                <!-- <a href="<?= site_url(''); ?>" class="btn btn-primary">Home</a> -->
-                <!-- <a href="<?= site_url('purcase/add_new_purcase'); ?>" class="btn btn-primary mb-3">Tambah
-                    Purcase</a> -->
                 <a href="<?= site_url('Items/add_new_items'); ?>" class="btn btn-primary mb-3">Tambah
                     items</a>
-                <!-- <a href="<?= site_url('purcase/add_new_items'); ?>" class="btn btn-primary mb-3">Tambah
-                    Items</a> -->
-                <!-- <a href="<?= site_url('Export'); ?>" target="_blank" class="btn btn-warning mb-3">Export items</a> -->
-                <!-- Example single danger button -->
                 <div class="btn-group mb-3">
                     <button type="button" class="btn btn-warning dropdown-toggle " data-toggle="dropdown"
                         aria-haspopup="true" aria-expanded="false">
                         Export
                     </button>
                     <div class="dropdown-menu">
-                        <a class="dropdown-item" target="_blank" href="<?= site_url('Export/pdf'); ?>">PDF</a>
-                        <a class="dropdown-item" href="<?= site_url('Export/excel'); ?>">EXCEL</a>
+                        <a class="dropdown-item" target="_blank" href="<?= site_url('Items/pdf'); ?>">PDF</a>
+                        <a class="dropdown-item" href="<?= site_url('Items/excel'); ?>">EXCEL</a>
                     </div>
                 </div>
 
@@ -159,21 +133,21 @@ defined('BASEPATH') or exit('No direct script access allowed');
                             </div>
                             <div class="d-flex flex-sm-row flex-column justify-content-around">
                                 <div class="flex-fill">
-                                    <input type="text" name="searchCode" value="<?= $searchCode; ?>"
-                                        class="form-control" placeholder="Search items Code">
-                                    <!-- <input type="submit" name="submitCode" value="submit" class="btn btn-primary"> -->
+                                    <input type="text" name="searchITEMID" value="<?= $searchITEMID; ?>"
+                                        class="form-control" placeholder="Search item ID">
+                                    <!-- <input type="submit" name="submitITEMID" value="submit" class="btn btn-primary"> -->
                                 </div>
                                 <div class="p-2"></div>
                                 <div class="flex-fill">
-                                    <input type="text" name="searchName" value="<?= $searchName; ?>"
-                                        class="form-control" placeholder="Search items Name">
+                                    <input type="text" name="searchITEMNAME" value="<?= $searchITEMNAME; ?>"
+                                        class="form-control" placeholder="Search item Name">
                                     <!-- <input type="submit" name="submitName" value="submit" class="btn btn-primary"> -->
                                 </div>
                                 <div class="p-2"></div>
 
                                 <div class="flex-fill">
-                                    <input type="text" name="searchPrice" value="<?= $searchPrice; ?>"
-                                        class="form-control" placeholder="Search items Price">
+                                    <input type="text" name="searchNAMEALIAS" value="<?= $searchNAMEALIAS; ?>"
+                                        class="form-control" placeholder="Search item Alias">
                                 </div>
 
                             </div>

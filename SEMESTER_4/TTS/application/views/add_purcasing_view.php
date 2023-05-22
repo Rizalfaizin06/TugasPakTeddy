@@ -11,7 +11,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="<?= base_url() ?>assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="<?= base_url() ?>assets/css/style.css" />
-    <title>Add Product View</title>
+    <title>Add Purcase View</title>
 
 </head>
 
@@ -33,7 +33,9 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 </div>
             </div>
             <a href="<?= base_url() ?>" class="list-group-item list-group-item-action">Home</a>
-            <a href="<?= base_url() ?>product/index" class="list-group-item list-group-item-action active">Product</a>
+            <a href="<?= base_url() ?>purcase/index" class="list-group-item list-group-item-action ">Purcase</a>
+            <a href="<?= base_url() ?>purcase/add_new_purcase" class="list-group-item list-group-item-action active">Add
+                Purcase</a>
 
 
             <div id="accordion">
@@ -41,76 +43,56 @@ defined('BASEPATH') or exit('No direct script access allowed');
                     <div class="list-group-item list-group-item-action btn btn-link text-left text-reset text-decoration-none"
                         id="headingOne" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
                         aria-controls="collapseOne">
-                        Export
+                        Export Purcase
                     </div>
 
                     <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
-                        <a href="<?= base_url('Export/pdf') ?>" target="_blank"
+                        <a href="<?= base_url('Purcase/pdf') ?>" target="_blank"
                             class="list-group-item list-group-item-action">PDF</a>
-                        <a href="<?= base_url('Export/excel') ?>"
+                        <a href="<?= base_url('Purcase/excel') ?>"
                             class="list-group-item list-group-item-action">EXCEL</a>
                     </div>
                 </div>
 
             </div>
-            <a href="<?= base_url() ?>" class="list-group-item list-group-item-action">Transaction History</a>
-            <a href="<?= base_url() ?>" class="list-group-item list-group-item-action">Logout</a>
-            <a href="<?= base_url() ?>" class="list-group-item list-group-item-action">Home</a>
-            <a href="<?= base_url() ?>product/index" class="list-group-item list-group-item-action active">Product</a>
+            <a href="<?= base_url() ?>VendorController/index" class="list-group-item list-group-item-action">Vendor</a>
+            <a href="<?= base_url() ?>VendorController/add_new_vendor"
+                class="list-group-item list-group-item-action">Add
+                Vendor</a>
+
             <div id="accordion">
                 <div class="card">
                     <div class="list-group-item list-group-item-action btn btn-link text-left text-reset text-decoration-none"
-                        id="headingOne" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
-                        aria-controls="collapseOne">
-                        Export
+                        id="headingTwo" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true"
+                        aria-controls="collapseTwo">
+                        Export Vendor
                     </div>
 
-                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
-                        <a href="<?= base_url('Export/pdf') ?>" target="_blank"
+                    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+                        <a href="<?= base_url('VendorController/pdf') ?>" target="_blank"
                             class="list-group-item list-group-item-action">PDF</a>
-                        <a href="<?= base_url('Export/excel') ?>"
+                        <a href="<?= base_url('VendorController/excel') ?>"
                             class="list-group-item list-group-item-action">EXCEL</a>
                     </div>
                 </div>
 
             </div>
-            <a href="<?= base_url() ?>" class="list-group-item list-group-item-action">Transaction History</a>
-            <a href="<?= base_url() ?>" class="list-group-item list-group-item-action">Logout</a>
-            <a href="<?= base_url() ?>" class="list-group-item list-group-item-action">Home</a>
-            <a href="<?= base_url() ?>product/index" class="list-group-item list-group-item-action active">Product</a>
+            <a href="<?= base_url() ?>Items/index" class="list-group-item list-group-item-action">Items</a>
+            <a href="<?= base_url() ?>Items/add_new_items" class="list-group-item list-group-item-action">Add
+                Items</a>
+
             <div id="accordion">
                 <div class="card">
                     <div class="list-group-item list-group-item-action btn btn-link text-left text-reset text-decoration-none"
-                        id="headingOne" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
-                        aria-controls="collapseOne">
-                        Export
+                        id="headingThree" data-toggle="collapse" data-target="#collapseThree" aria-expanded="true"
+                        aria-controls="collapseThree">
+                        Export Items
                     </div>
 
-                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
-                        <a href="<?= base_url('Export/pdf') ?>" target="_blank"
+                    <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordion">
+                        <a href="<?= base_url('Items/pdf') ?>" target="_blank"
                             class="list-group-item list-group-item-action">PDF</a>
-                        <a href="<?= base_url('Export/excel') ?>"
-                            class="list-group-item list-group-item-action">EXCEL</a>
-                    </div>
-                </div>
-
-            </div>
-            <a href="<?= base_url() ?>" class="list-group-item list-group-item-action">Transaction History</a>
-            <a href="<?= base_url() ?>" class="list-group-item list-group-item-action">Logout</a>
-            <a href="<?= base_url() ?>" class="list-group-item list-group-item-action">Home</a>
-            <a href="<?= base_url() ?>product/index" class="list-group-item list-group-item-action active">Product</a>
-            <div id="accordion">
-                <div class="card">
-                    <div class="list-group-item list-group-item-action btn btn-link text-left text-reset text-decoration-none"
-                        id="headingOne" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true"
-                        aria-controls="collapseOne">
-                        Export
-                    </div>
-
-                    <div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordion">
-                        <a href="<?= base_url('Export/pdf') ?>" target="_blank"
-                            class="list-group-item list-group-item-action">PDF</a>
-                        <a href="<?= base_url('Export/excel') ?>"
+                        <a href="<?= base_url('Items/excel') ?>"
                             class="list-group-item list-group-item-action">EXCEL</a>
                     </div>
                 </div>
@@ -214,7 +196,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                     </div>
 
                                     <div class="form-row justify-content-end">
-                                        <a href="<?= site_url('product'); ?>" class="btn btn-primary mr-2">
+                                        <a href="<?= site_url('Purcase'); ?>" class="btn btn-primary mr-2">
                                             Batal</a>
                                         <button class="btn btn-success" type="submit" name="addPurcase"
                                             value="addPurcase">Save Purcase</button>

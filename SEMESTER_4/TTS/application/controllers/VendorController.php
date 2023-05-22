@@ -12,25 +12,25 @@ class VendorController extends CI_Controller
     public function index($row_no = 0)
     {
         //search text
-        $searchCode = "";
-        $searchName = "";
-        $searchPrice = "";
+        $searchACCOUNTNUM = "";
+        $searchNAME = "";
+        $searchADDRESS = "";
         if ($this->input->post('search') != '') {
-            $searchCode = $this->input->post('searchCode');
-            $searchName = $this->input->post('searchName');
-            $searchPrice = $this->input->post('searchPrice');
-            $this->session->set_userdata("searchCode", $searchCode);
-            $this->session->set_userdata("searchName", $searchName);
-            $this->session->set_userdata("searchPrice", $searchPrice);
+            $searchACCOUNTNUM = $this->input->post('searchACCOUNTNUM');
+            $searchNAME = $this->input->post('searchNAME');
+            $searchADDRESS = $this->input->post('searchADDRESS');
+            $this->session->set_userdata("searchACCOUNTNUM", $searchACCOUNTNUM);
+            $this->session->set_userdata("searchNAME", $searchNAME);
+            $this->session->set_userdata("searchADDRESS", $searchADDRESS);
         } else {
-            if ($this->session->userdata('searchCode') != "") {
-                $searchCode = $this->session->userdata('searchCode');
+            if ($this->session->userdata('searchACCOUNTNUM') != "") {
+                $searchACCOUNTNUM = $this->session->userdata('searchACCOUNTNUM');
             }
-            if ($this->session->userdata('searchName') != "") {
-                $searchName = $this->session->userdata('searchName');
+            if ($this->session->userdata('searchNAME') != "") {
+                $searchNAME = $this->session->userdata('searchNAME');
             }
-            if ($this->session->userdata('searchPrice') != "") {
-                $searchPrice = $this->session->userdata('searchPrice');
+            if ($this->session->userdata('searchADDRESS') != "") {
+                $searchADDRESS = $this->session->userdata('searchADDRESS');
             }
         }
 
@@ -42,7 +42,7 @@ class VendorController extends CI_Controller
         }
         // Pagination Configuration
         // All record count
-        $config['total_rows'] = $this->Vendor_model->get_vendor_count($searchCode, $searchName, $searchPrice);
+        $config['total_rows'] = $this->Vendor_model->get_vendor_count($searchACCOUNTNUM, $searchNAME, $searchADDRESS);
         $config['base_url'] = base_url() . 'vendorController/index';
         $config['use_page_numbers'] = true;
         $config['per_page'] = $row_per_page;
@@ -53,13 +53,13 @@ class VendorController extends CI_Controller
         $data['pagination'] = $this->pagination->create_links();
 
         // Get record
-        $data['vendor'] = $this->Vendor_model->get_vendor($row_no, $row_per_page, $searchCode, $searchName, $searchPrice);
+        $data['vendor'] = $this->Vendor_model->get_vendor($row_no, $row_per_page, $searchACCOUNTNUM, $searchNAME, $searchADDRESS);
 
         $data['row'] = $row_no;
 
-        $data['searchCode'] = $searchCode;
-        $data['searchName'] = $searchName;
-        $data['searchPrice'] = $searchPrice;
+        $data['searchACCOUNTNUM'] = $searchACCOUNTNUM;
+        $data['searchNAME'] = $searchNAME;
+        $data['searchADDRESS'] = $searchADDRESS;
         $data['totalRow'] = $config['total_rows'];
 
         $this->load->view('vendor_view', $data);
@@ -109,7 +109,7 @@ class VendorController extends CI_Controller
                 'PHONE' => $result->PHONE,
 
             );
-            var_dump($result);
+            // var_dump($result);
             // var_dump($this->Vendor_model->get_vendor()->result());
             // $data['vendor'] = $this->Vendor_model->get_vendor()->result();
             // $data['items'] = $this->Vendor_model->get_items()->result();
@@ -150,7 +150,7 @@ class VendorController extends CI_Controller
                 'PHONE' => $result->PHONE,
 
             );
-            var_dump($result);
+            // var_dump($result);
             // var_dump($this->Vendor_model->get_vendor()->result());
             // $data['vendor'] = $this->Vendor_model->get_vendor()->result();
             // $data['items'] = $this->Vendor_model->get_items()->result();
@@ -172,4 +172,134 @@ class VendorController extends CI_Controller
 
         }
     }
+
+
+
+
+
+
+    public function pdf()
+    {
+        $searchACCOUNTNUM = "";
+        $searchNAME = "";
+        $searchADDRESS = "";
+        if ($this->input->post('search') != '') {
+            $searchACCOUNTNUM = $this->input->post('searchACCOUNTNUM');
+            $searchNAME = $this->input->post('searchNAME');
+            $searchADDRESS = $this->input->post('searchADDRESS');
+            $this->session->set_userdata("searchACCOUNTNUM", $searchACCOUNTNUM);
+            $this->session->set_userdata("searchNAME", $searchNAME);
+            $this->session->set_userdata("searchADDRESS", $searchADDRESS);
+        } else {
+            if ($this->session->userdata('searchACCOUNTNUM') != "") {
+                $searchACCOUNTNUM = $this->session->userdata('searchACCOUNTNUM');
+            }
+            if ($this->session->userdata('searchNAME') != "") {
+                $searchNAME = $this->session->userdata('searchNAME');
+            }
+            if ($this->session->userdata('searchADDRESS') != "") {
+                $searchADDRESS = $this->session->userdata('searchADDRESS');
+            }
+        }
+
+        $this->load->library('pdf');
+        $vendor = $this->Vendor_model->get_all_vendor($searchACCOUNTNUM, $searchNAME, $searchADDRESS);
+        $pdf = new Pdf();
+        $pdf->SetTitle('Daftar Vendor');
+        $pdf->AddPage("P", array(310, 390));
+        $pdf->SetFont('Arial', 'B', 16);
+        $pdf->Cell(0, 20, 'Daftar Vendor', 0, 1, 'C');
+        $pdf->SetFont('Arial', 'B', 12);
+        $pdf->SetXY(16, 30);
+        $pdf->Cell(10, 10, 'No.', 1, 0, 'C');
+        $pdf->Cell(40, 10, 'Account Number', 1, 0, 'C');
+        $pdf->Cell(60, 10, 'Vendor Name', 1, 0, 'C');
+        $pdf->Cell(90, 10, 'Address', 1, 0, 'C');
+        $pdf->Cell(40, 10, 'Phone', 1, 0, 'C');
+        $pdf->Cell(40, 10, 'Created', 1, 1, 'C');
+
+
+        $pdf->SetFont('Arial', '', 10);
+        $pdf->SetXY(16, 40);
+        $count = 1;
+        foreach ($vendor->result() as $row) {
+            $pdf->Cell(10, 10, $count, 1, 0, 'C');
+            $pdf->Cell(40, 10, $row->ACCOUNTNUM, 1, 0, 'C');
+            $pdf->Cell(60, 10, $row->NAME, 1, 0, 'C');
+            $pdf->Cell(90, 10, $row->ADDRESS, 1, 0, 'C');
+            $pdf->Cell(40, 10, $row->PHONE, 1, 0, 'C');
+            $pdf->Cell(40, 10, $row->CREATEDDATETIME, 1, 1, 'C');
+
+
+            $pdf->SetX(16);
+            $count++;
+        }
+        $totalvendorInt = $count - 1;
+        $totalvendorString = 'Total Vendor = ' . $totalvendorInt . '    ';
+        $pdf->Cell(280, 10, $totalvendorString, 1, 0, 'R');
+
+        $pdf->Output('I', 'Daftar Vendor.pdf');
+    }
+
+
+
+    public function excel()
+    {
+        $searchACCOUNTNUM = "";
+        $searchNAME = "";
+        $searchADDRESS = "";
+        if ($this->input->post('search') != '') {
+            $searchACCOUNTNUM = $this->input->post('searchACCOUNTNUM');
+            $searchNAME = $this->input->post('searchNAME');
+            $searchADDRESS = $this->input->post('searchADDRESS');
+            $this->session->set_userdata("searchACCOUNTNUM", $searchACCOUNTNUM);
+            $this->session->set_userdata("searchNAME", $searchNAME);
+            $this->session->set_userdata("searchADDRESS", $searchADDRESS);
+        } else {
+            if ($this->session->userdata('searchACCOUNTNUM') != "") {
+                $searchACCOUNTNUM = $this->session->userdata('searchACCOUNTNUM');
+            }
+            if ($this->session->userdata('searchNAME') != "") {
+                $searchNAME = $this->session->userdata('searchNAME');
+            }
+            if ($this->session->userdata('searchADDRESS') != "") {
+                $searchADDRESS = $this->session->userdata('searchADDRESS');
+            }
+        }
+        $vendor = $this->Vendor_model->get_all_vendor($searchACCOUNTNUM, $searchNAME, $searchADDRESS);
+
+        // Set header untuk membuat file Excel
+        header("Content-type: application/vnd.ms-excel");
+        header("Content-Disposition: attachment; filename=Daftar vendor.xls");
+
+        // Tampilkan data ke dalam tabel Excel
+        echo "<table>";
+        echo "<tr>
+        <th>No.</th>
+        <th>Account Number</th>
+        <th>Vendor Name</th>
+        <th>Address</th>
+        <th>Phone</th>
+        <th>Created</th>
+    </tr></tr>";
+        $count = 1;
+        foreach ($vendor->result() as $row) {
+            echo "<tr>";
+            echo "<td style='text-align:center;'>" . $count . "</td>";
+            echo "<td style='text-align:center;'>" . $row->ACCOUNTNUM . "</td>";
+            echo "<td style='text-align:center;'>" . $row->NAME . "</td>";
+            echo "<td style='text-align:center;'>" . $row->ADDRESS . "</td>";
+            echo "<td style='text-align:center;'>" . $row->PHONE . "</td>";
+            echo "<td style='text-align:center;'>" . $row->CREATEDDATETIME . "</td>";
+
+            echo "</tr>";
+            $count++;
+        }
+        $totalvendorInt = $count - 1;
+        $totalvendorString = 'Total vendor = ' . $totalvendorInt . '    ';
+        echo "<tr><td colspan='6' style='text-align:center;'>" . $totalvendorString . "</td></tr>";
+        echo "</table>";
+
+    }
+
 }

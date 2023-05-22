@@ -2,23 +2,32 @@
 
 class Items_model extends CI_Model
 {
-    public function get_all_items()
-    {
-        $result = $this->db->get('inventtable');
-        return $result;
-    }
-
-    public function get_items($rowno, $rowperpage, $searchCode = "", $searchName = "", $searchPrice = "")
+    public function get_all_items($searchITEMID = "", $searchITEMNAME = "", $searchNAMEALIAS = "")
     {
         $this->db->select('*');
         $this->db->from('inventtable');
 
+        $this->db->like('ITEMID', $searchITEMID);
+        $this->db->like('ITEMNAME', $searchITEMNAME);
+        $this->db->like('NAMEALIAS', $searchNAMEALIAS);
 
-        // $this->db->like('items_code', $searchCode);
-        // $this->db->like('items_name', $searchName);
-        // $this->db->like('items_price', $searchPrice);
+        $this->db->order_by('ITEMID', 'DESC');
+        $result = $this->db->get();
+
+        return $result;
+    }
+
+    public function get_items($rowno, $rowperpage, $searchITEMID = "", $searchITEMNAME = "", $searchNAMEALIAS = "")
+    {
+
+        $this->db->select('*');
+        $this->db->from('inventtable');
 
 
+
+        $this->db->like('ITEMID', $searchITEMID);
+        $this->db->like('ITEMNAME', $searchITEMNAME);
+        $this->db->like('NAMEALIAS', $searchNAMEALIAS);
         $this->db->order_by('ITEMID', 'DESC');
         $result = $this->db->limit($rowperpage, $rowno)->get();
         return $result;
@@ -60,7 +69,6 @@ class Items_model extends CI_Model
         $this->db->from('inventtable');
         $this->db->where('ITEMID', $ITEMID);
         $result = $this->db->get()->row();
-        // $query = $this->db->get_where('inventtable', array('ACCOUNTNUM' => $ACCOUNTNUM));
         return $result;
     }
 
@@ -74,15 +82,17 @@ class Items_model extends CI_Model
     }
 
     //count total record
-    public function get_items_count($searchCode = "", $searchName = "", $searchPrice = "")
+    public function get_items_count($searchITEMID = "", $searchITEMNAME = "", $searchNAMEALIAS = "")
     {
         $this->db->select('*');
         $this->db->from('inventtable');
 
+        $this->db->like('ITEMID', $searchITEMID);
+        $this->db->like('ITEMNAME', $searchITEMNAME);
+        $this->db->like('NAMEALIAS', $searchNAMEALIAS);
 
-        // $this->db->like('items_code', $searchCode);
-        // $this->db->like('items_name', $searchName);
-        // $this->db->like('items_price', $searchPrice);
+
+
 
         $result = $this->db->count_all_results();
 

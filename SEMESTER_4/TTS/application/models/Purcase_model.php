@@ -2,13 +2,7 @@
 
 class Purcase_model extends CI_Model
 {
-    public function get_all_purcase()
-    {
-        $result = $this->db->get('purchline');
-        return $result;
-    }
-
-    public function get_purcase($rowno, $rowperpage, $searchCode = "", $searchName = "", $searchPrice = "")
+    public function get_all_purcase($INVENTTRANSID = "", $NAME = "", $ITEMNAME = "")
     {
         $this->db->select('*');
         $this->db->from('purchline AS PL');
@@ -16,9 +10,27 @@ class Purcase_model extends CI_Model
         $this->db->join('vendtable AS V', 'PT.INVOICEACCOUNT = V.ACCOUNTNUM');
         $this->db->join('inventtable AS I', 'PL.ITEMID = I.ITEMID');
 
-        // $this->db->like('purcase_code', $searchCode);
-        // $this->db->like('purcase_name', $searchName);
-        // $this->db->like('purcase_price', $searchPrice);
+        $this->db->like('INVENTTRANSID', $INVENTTRANSID);
+        $this->db->like('NAME', $NAME);
+        $this->db->like('ITEMNAME', $ITEMNAME);
+
+        $this->db->order_by('INVENTTRANSID', 'DESC');
+        $result = $this->db->get();
+
+        return $result;
+    }
+
+    public function get_purcase($rowno, $rowperpage, $INVENTTRANSID = "", $NAME = "", $ITEMNAME = "")
+    {
+        $this->db->select('*');
+        $this->db->from('purchline AS PL');
+        $this->db->join('purchtable AS PT', 'PL.PURCHID = PT.PURCHID');
+        $this->db->join('vendtable AS V', 'PT.INVOICEACCOUNT = V.ACCOUNTNUM');
+        $this->db->join('inventtable AS I', 'PL.ITEMID = I.ITEMID');
+
+        $this->db->like('INVENTTRANSID', $INVENTTRANSID);
+        $this->db->like('NAME', $NAME);
+        $this->db->like('ITEMNAME', $ITEMNAME);
 
 
         $this->db->order_by('INVENTTRANSID', 'DESC');
@@ -200,15 +212,17 @@ class Purcase_model extends CI_Model
     }
 
     //count total record
-    public function get_purcase_count($searchCode = "", $searchName = "", $searchPrice = "")
+    public function get_purcase_count($INVENTTRANSID = "", $NAME = "", $ITEMNAME = "")
     {
         $this->db->select('*');
-        $this->db->from('purchline');
+        $this->db->from('purchline AS PL');
+        $this->db->join('purchtable AS PT', 'PL.PURCHID = PT.PURCHID');
+        $this->db->join('vendtable AS V', 'PT.INVOICEACCOUNT = V.ACCOUNTNUM');
+        $this->db->join('inventtable AS I', 'PL.ITEMID = I.ITEMID');
 
-
-        // $this->db->like('purcase_code', $searchCode);
-        // $this->db->like('purcase_name', $searchName);
-        // $this->db->like('purcase_price', $searchPrice);
+        $this->db->like('INVENTTRANSID', $INVENTTRANSID);
+        $this->db->like('NAME', $NAME);
+        $this->db->like('ITEMNAME', $ITEMNAME);
 
         $result = $this->db->count_all_results();
 
