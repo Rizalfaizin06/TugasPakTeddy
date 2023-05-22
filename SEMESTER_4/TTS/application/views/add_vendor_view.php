@@ -166,11 +166,11 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
 
                                     <div class="form-row justify-content-end">
-                                        <a href="<?= site_url('product'); ?>" class="btn btn-primary mr-2">
+                                        <a href="<?= site_url('vendorController'); ?>" class="btn btn-primary mr-2">
                                             Batal</a>
                                         <button class="btn btn-success" type="submit" name="addPurcase"
                                             value="addPurcase">Save
-                                            Purcase</button>
+                                            Vendor</button>
                                     </div>
 
                                 </form>

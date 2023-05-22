@@ -11,7 +11,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="<?= base_url() ?>assets/bootstrap/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="<?= base_url() ?>assets/css/style.css" />
-    <title>Vendor View</title>
+    <title>items View</title>
 
 </head>
 
@@ -31,7 +31,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 </div>
             </div>
             <a href="<?= base_url() ?>" class="list-group-item list-group-item-action">Home</a>
-            <a href="<?= base_url() ?>product/index" class="list-group-item list-group-item-action active">Product</a>
+            <a href="<?= base_url() ?>items/index" class="list-group-item list-group-item-action active">items</a>
 
 
             <div id="accordion">
@@ -54,7 +54,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
             <a href="<?= base_url() ?>" class="list-group-item list-group-item-action">Transaction History</a>
             <a href="<?= base_url() ?>" class="list-group-item list-group-item-action">Logout</a>
             <a href="<?= base_url() ?>" class="list-group-item list-group-item-action">Home</a>
-            <a href="<?= base_url() ?>product/index" class="list-group-item list-group-item-action active">Product</a>
+            <a href="<?= base_url() ?>items/index" class="list-group-item list-group-item-action active">items</a>
             <div id="accordion">
                 <div class="card">
                     <div class="list-group-item list-group-item-action btn btn-link text-left text-reset text-decoration-none"
@@ -75,7 +75,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
             <a href="<?= base_url() ?>" class="list-group-item list-group-item-action">Transaction History</a>
             <a href="<?= base_url() ?>" class="list-group-item list-group-item-action">Logout</a>
             <a href="<?= base_url() ?>" class="list-group-item list-group-item-action">Home</a>
-            <a href="<?= base_url() ?>product/index" class="list-group-item list-group-item-action active">Product</a>
+            <a href="<?= base_url() ?>items/index" class="list-group-item list-group-item-action active">items</a>
             <div id="accordion">
                 <div class="card">
                     <div class="list-group-item list-group-item-action btn btn-link text-left text-reset text-decoration-none"
@@ -96,7 +96,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
             <a href="<?= base_url() ?>" class="list-group-item list-group-item-action">Transaction History</a>
             <a href="<?= base_url() ?>" class="list-group-item list-group-item-action">Logout</a>
             <a href="<?= base_url() ?>" class="list-group-item list-group-item-action">Home</a>
-            <a href="<?= base_url() ?>product/index" class="list-group-item list-group-item-action active">Product</a>
+            <a href="<?= base_url() ?>items/index" class="list-group-item list-group-item-action active">items</a>
             <div id="accordion">
                 <div class="card">
                     <div class="list-group-item list-group-item-action btn btn-link text-left text-reset text-decoration-none"
@@ -131,11 +131,11 @@ defined('BASEPATH') or exit('No direct script access allowed');
                 <!-- <a href="<?= site_url(''); ?>" class="btn btn-primary">Home</a> -->
                 <!-- <a href="<?= site_url('purcase/add_new_purcase'); ?>" class="btn btn-primary mb-3">Tambah
                     Purcase</a> -->
-                <a href="<?= site_url('vendorController/add_new_vendor'); ?>" class="btn btn-primary mb-3">Tambah
-                    Vendor</a>
+                <a href="<?= site_url('Items/add_new_items'); ?>" class="btn btn-primary mb-3">Tambah
+                    items</a>
                 <!-- <a href="<?= site_url('purcase/add_new_items'); ?>" class="btn btn-primary mb-3">Tambah
                     Items</a> -->
-                <!-- <a href="<?= site_url('Export'); ?>" target="_blank" class="btn btn-warning mb-3">Export Product</a> -->
+                <!-- <a href="<?= site_url('Export'); ?>" target="_blank" class="btn btn-warning mb-3">Export items</a> -->
                 <!-- Example single danger button -->
                 <div class="btn-group mb-3">
                     <button type="button" class="btn btn-warning dropdown-toggle " data-toggle="dropdown"
@@ -153,27 +153,27 @@ defined('BASEPATH') or exit('No direct script access allowed');
 
                 <div class="card">
                     <div class="card-header">
-                        <form action="<?= base_url() ?>product/index" method="post">
+                        <form action="<?= base_url() ?>items/index" method="post">
                             <div class="d-flex flex-column text-center mb-2">
-                                <h3>Filter Product</h3>
+                                <h3>Filter items</h3>
                             </div>
                             <div class="d-flex flex-sm-row flex-column justify-content-around">
                                 <div class="flex-fill">
                                     <input type="text" name="searchCode" value="<?= $searchCode; ?>"
-                                        class="form-control" placeholder="Search Product Code">
+                                        class="form-control" placeholder="Search items Code">
                                     <!-- <input type="submit" name="submitCode" value="submit" class="btn btn-primary"> -->
                                 </div>
                                 <div class="p-2"></div>
                                 <div class="flex-fill">
                                     <input type="text" name="searchName" value="<?= $searchName; ?>"
-                                        class="form-control" placeholder="Search Product Name">
+                                        class="form-control" placeholder="Search items Name">
                                     <!-- <input type="submit" name="submitName" value="submit" class="btn btn-primary"> -->
                                 </div>
                                 <div class="p-2"></div>
 
                                 <div class="flex-fill">
                                     <input type="text" name="searchPrice" value="<?= $searchPrice; ?>"
-                                        class="form-control" placeholder="Search Product Price">
+                                        class="form-control" placeholder="Search items Price">
                                 </div>
 
                             </div>
@@ -192,18 +192,17 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                     <thead>
                                         <tr>
                                             <th>No.</th>
-                                            <th>Account Number</th>
-                                            <th>Vendor Name</th>
-                                            <th>Address</th>
-                                            <th>Phone</th>
-                                            <th>Created</th>
+                                            <th>Item ID</th>
+                                            <th>Item Name</th>
+                                            <th>Item Type</th>
+                                            <th>Item Alias</th>
                                             <th>Action</th>
                                         </tr>
                                     </thead>
                                     <tbody>
                                         <?php
                                         $count = $row + 1;
-                                        foreach ($vendor->result() as $row):
+                                        foreach ($items->result() as $row):
                                             ?>
                                             <tr>
                                                 <td>
@@ -211,25 +210,21 @@ defined('BASEPATH') or exit('No direct script access allowed');
                                                 </td>
 
                                                 <td>
-                                                    <?= $row->ACCOUNTNUM; ?>
+                                                    <?= $row->ITEMID; ?>
                                                 </td>
                                                 <td>
-                                                    <?= $row->NAME; ?>
+                                                    <?= $row->ITEMNAME; ?>
                                                 </td>
                                                 <td>
-                                                    <?= $row->ADDRESS; ?>
+                                                    <?= $row->ITEMTYPE; ?>
                                                 </td>
                                                 <td>
-                                                    <?= $row->PHONE; ?>
+                                                    <?= $row->NAMEALIAS; ?>
                                                 </td>
                                                 <td>
-                                                    <?= $row->CREATEDDATETIME; ?>
-                                                </td>
-
-                                                <td>
-                                                    <a href="<?= site_url('vendorController/get_edit/' . $row->ACCOUNTNUM); ?>"
+                                                    <a href="<?= site_url('Items/get_edit/' . $row->ITEMID); ?>"
                                                         class="btn btn-warning">Update</a>
-                                                    <a href="<?= site_url('vendorController/get_delete/' . $row->ACCOUNTNUM); ?> "
+                                                    <a href="<?= site_url('Items/get_delete/' . $row->ITEMID); ?> "
                                                         class="btn btn-danger">Delete</a>
                                                 </td>
                                             </tr>
@@ -241,7 +236,7 @@ defined('BASEPATH') or exit('No direct script access allowed');
                             </div>
                             <div class="d-flex flex-column justify-content-center">
                                 <h6 class="text-center">
-                                    Total Product =
+                                    Total items =
                                     <?= $totalRow; ?>
                                 </h6>
 

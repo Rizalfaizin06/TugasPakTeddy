@@ -79,15 +79,12 @@ class Items extends CI_Controller
 
     public function save_items()
     {
-        date_default_timezone_set('Asia/Jakarta');
 
-        $NAME = $this->input->post('NAME');
-        $ADDRESS = $this->input->post('ADDRESS');
-        $PHONE = $this->input->post('PHONE');
-        $CREATEDDATETIME = date('Y-m-d');
+        $ITEMNAME = $this->input->post('ITEMNAME');
+        $ITEMTYPE = $this->input->post('ITEMTYPE');
+        $NAMEALIAS = $this->input->post('NAMEALIAS');
 
-        if ($this->Items_model->save_items($NAME, $ADDRESS, $PHONE, $CREATEDDATETIME)) {
-
+        if ($this->Items_model->save_items($ITEMNAME, $ITEMTYPE, $NAMEALIAS)) {
             redirect('items');
         } else {
             $data['error'] = "Terjadi Kesalahan";
@@ -97,16 +94,16 @@ class Items extends CI_Controller
 
     public function get_edit()
     {
-        $ACCOUNTNUM = $this->uri->segment(3);
-        $result = $this->Items_model->get_items_id($ACCOUNTNUM);
+        $ITEMID = $this->uri->segment(3);
+        $result = $this->Items_model->get_items_id($ITEMID);
 
         if ($result) {
             // $i = $result->row_array();
             $data = array(
-                'ACCOUNTNUM' => $result->ACCOUNTNUM,
-                'NAME' => $result->NAME,
-                'ADDRESS' => $result->ADDRESS,
-                'PHONE' => $result->PHONE,
+                'ITEMID' => $result->ITEMID,
+                'ITEMNAME' => $result->ITEMNAME,
+                'ITEMTYPE' => $result->ITEMTYPE,
+                'NAMEALIAS' => $result->NAMEALIAS,
 
             );
             var_dump($result);
@@ -123,31 +120,34 @@ class Items extends CI_Controller
     {
         // $INVENTTRANSID = $this->Items_model->get_new_inventtransid();
         // $PURCHID = $this->Items_model->get_new_purchid();
-        $ACCOUNTNUM = $this->input->post('ACCOUNTNUM');
-        $NAME = $this->input->post('NAME');
-        $ADDRESS = $this->input->post('ADDRESS');
-        $PHONE = $this->input->post('PHONE');
-        if ($this->Items_model->update_items($ACCOUNTNUM, $NAME, $ADDRESS, $PHONE)) {
+        $ITEMID = $this->input->post('ITEMID');
+        $ITEMNAME = $this->input->post('ITEMNAME');
+        $ITEMTYPE = $this->input->post('ITEMTYPE');
+        $NAMEALIAS = $this->input->post('NAMEALIAS');
+
+        if ($this->Items_model->update_items($ITEMID, $ITEMNAME, $ITEMTYPE, $NAMEALIAS)) {
             redirect('items');
         } else {
             $data['error'] = "Terjadi Kesalahan";
-            $this->load->view('edit_items_view', $data);
+            $this->load->view('update_items_view', $data);
+
         }
+
 
     }
 
     public function get_delete()
     {
-        $ACCOUNTNUM = $this->uri->segment(3);
-        $result = $this->Items_model->get_items_id($ACCOUNTNUM);
+        $ITEMID = $this->uri->segment(3);
+        $result = $this->Items_model->get_items_id($ITEMID);
 
         if ($result) {
             // $i = $result->row_array();
             $data = array(
-                'ACCOUNTNUM' => $result->ACCOUNTNUM,
-                'NAME' => $result->NAME,
-                'ADDRESS' => $result->ADDRESS,
-                'PHONE' => $result->PHONE,
+                'ITEMID' => $result->ITEMID,
+                'ITEMNAME' => $result->ITEMNAME,
+                'ITEMTYPE' => $result->ITEMTYPE,
+                'NAMEALIAS' => $result->NAMEALIAS,
 
             );
             var_dump($result);
@@ -155,21 +155,22 @@ class Items extends CI_Controller
             // $data['items'] = $this->Items_model->get_items()->result();
             // $data['items'] = $this->Items_model->get_items()->result();
             $this->load->view('delete_items_view', $data);
+        } else {
+            echo "data tidak ditemukan";
         }
+
     }
 
     public function delete()
     {
 
-        $ACCOUNTNUM = $this->uri->segment(3);
-        // var_dump($ACCOUNTNUM);
-        // die;
-        if ($this->Items_model->delete($ACCOUNTNUM)) {
+        $ITEMID = $this->input->post('ITEMID');
+        if ($this->Items_model->delete($ITEMID)) {
 
             redirect('items');
         } else {
-            redirect('items');
-
+            $data['error'] = "Terjadi Kesalahan";
+            $this->load->view('delete_items_view', $data);
         }
     }
 }

@@ -142,36 +142,38 @@ defined('BASEPATH') or exit('No direct script access allowed');
                             </div>
 
                             <div class="card-body">
-                                <form action="<?= site_url('Items/save_Items'); ?>" method="post">
+                                <form action="<?= site_url('Items/update_items'); ?>" method="post">
 
                                     <div class="form-row">
                                         <div class="col-md-12 mb-3">
                                             <label for="ITEMNAME">Item Name</label>
                                             <input type="text" class="form-control" id="ITEMNAME" name="ITEMNAME"
-                                                required>
+                                                value="<?= $ITEMNAME; ?>" required>
                                         </div>
 
                                     </div>
-                                    <div class="form-row">
+                                    <div class=" form-row">
                                         <div class="col-md-8 mb-3">
                                             <label for="NAMEALIAS">Name Alias</label>
                                             <input type="text" class="form-control" id="NAMEALIAS" name="NAMEALIAS"
-                                                required>
+                                                value="<?= $NAMEALIAS; ?>" required>
                                         </div>
-                                        <div class="col-md-4 mb-3">
+                                        <div class=" col-md-4 mb-3">
                                             <label for="ITEMTYPE">Item Type</label>
                                             <input type="text" class="form-control" id="ITEMTYPE" name="ITEMTYPE"
-                                                min="0" required>
+                                                min="0" value="<?= $ITEMTYPE; ?>" required>
+                                            <input type="hidden" class="form-control" id="ITEMID" name="ITEMID" min="0"
+                                                value="<?= $ITEMID; ?>" required>
                                         </div>
 
                                     </div>
 
 
-                                    <div class="form-row justify-content-end">
-                                        <a href="<?= site_url('product'); ?>" class="btn btn-primary mr-2">
+                                    <div class=" form-row justify-content-end">
+                                        <a href="<?= site_url('items'); ?>" class="btn btn-primary mr-2">
                                             Batal</a>
                                         <button class="btn btn-success" type="submit" name="addItem"
-                                            value="addItem">Save Item</button>
+                                            value="addItem">Update Item</button>
                                     </div>
                                 </form>
                             </div>
